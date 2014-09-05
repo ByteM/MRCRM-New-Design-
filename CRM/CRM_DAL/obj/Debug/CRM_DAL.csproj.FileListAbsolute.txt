@@ -1,0 +1,7 @@
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\bin\Debug\CRM_DAL.dll
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\bin\Debug\CRM_DAL.pdb
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\obj\Debug\CRM_DAL.dll
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\obj\Debug\CRM_DAL.pdb
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\obj\Debug\CRM_DAL.csprojResolveAssemblyReference.cache
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\bin\Debug\CRM_BAL.dll
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_DAL\bin\Debug\CRM_BAL.pdb

@@ -1,0 +1,4 @@
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_BAL\bin\Debug\CRM_BAL.dll
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_BAL\bin\Debug\CRM_BAL.pdb
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_BAL\obj\Debug\CRM_BAL.dll
+D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_BAL\obj\Debug\CRM_BAL.pdb
