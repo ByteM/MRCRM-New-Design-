@@ -357,7 +357,7 @@
             </StatusBar>
             <Grid HorizontalAlignment="Stretch" Height="6" Margin="0,0,0,38" VerticalAlignment="Bottom" Width="Auto" Background="#FF05C30D"/>
             <Grid Margin="0,62,0,44" HorizontalAlignment="Stretch" Width="Auto" Background="#FFEECBCB">
-                <Grid x:Name="grdAdm_DealerDetails" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="Auto"  Margin="180,3,180,3" Width="864" Background="White" Loaded="grdAdm_DealerDetails_Loaded">
+                <Grid x:Name="grdAdm_DealerDetails" Visibility="Visible"  HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="Auto"  Margin="180,3,180,3" Width="864" Background="White" Loaded="grdAdm_DealerDetails_Loaded">
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="864" Background="#FF4655F0">
                         <Label Content="Dealer Entry" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="16" FontWeight="Bold" FontFamily="Verdana"/>
                         <Label Content="This is where you fill your dealer details" HorizontalAlignment="Left" Margin="18,32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="14" FontFamily="Verdana"/>
