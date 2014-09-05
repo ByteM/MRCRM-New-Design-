@@ -19,3 +19,6 @@ D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_User_Interface\obj\Debug\frmValidatio
 D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_User_Interface\obj\Debug\frmValidationMessage.g.cs
 D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_User_Interface\obj\Debug\frmViewEmployeeDetails.baml
 D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_User_Interface\obj\Debug\frmViewEmployeeDetails.g.cs
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe.config
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.exe
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.pdb
