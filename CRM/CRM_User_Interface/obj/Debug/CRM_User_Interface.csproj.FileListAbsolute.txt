@@ -22,3 +22,24 @@ D:\Tach4Art\CRM\30 August 2014 CRM\CRM\CRM_User_Interface\obj\Debug\frmViewEmplo
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe.config
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.exe
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe.config
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.exe
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_User_Interface.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_BAL.dll
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_DAL.dll
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_BAL.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\bin\Debug\CRM_DAL.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.csprojResolveAssemblyReference.cache
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmCRM_Adm_Dashbord.baml
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmValidationMessage.baml
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmViewEmployeeDetails.baml
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmCRM_Adm_Dashbord.g.cs
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmValidationMessage.g.cs
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmViewEmployeeDetails.g.cs
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\App.g.cs
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface_MarkupCompile.cache
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.g.resources
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.Properties.Resources.resources
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\CRM_User_Interface.csproj.GenerateResource.Cache
