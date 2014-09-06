@@ -3276,6 +3276,7 @@ namespace CRM_User_Interface
         public void clearfunctionforfollowup()
         {
             //FolloupID_fetch();
+            cmbFollowpTitle.Text = null;
             txtAdm_FollowupFirstName.Text = "";
             txtAdm_FollowupLastName.Text = "";
             dp_Dob.SelectedDate = null;
@@ -3288,19 +3289,28 @@ namespace CRM_User_Interface
             txtFollowup_Zip.Text = "";
             cmbFollowup_State.Text = null;
             cmbFollowup_Country.Text = null;
-            txtCProductDetails.Text = "";
+            txtFollowupDescription.Text = "";
+            txtFollowAnnualRevenue.Text = "";
             cmbCEmployeename.SelectedValue = null;
-            rdoCFolloup.IsChecked = false;
-            rdoCCustom.IsChecked = false;
-            dp_Cdate.SelectedDate = null;
             cmbCSourceofEnq.Text = null;
+            txtFollowFaxNo.Text = "";
+            txtFollowWebsite.Text = "";
+            dgvFoll_AddProducts.ItemsSource = null;
             //loadSourceofEnq();
         }
 
         public bool Followup_Validation()
         {
             bool result = false;
-            if (txtAdm_FollowupFirstName.Text == "")
+            if (cmbCEmployeename.Text == "-None-")
+            {
+                result = true;
+                frmValidationMessage obj = new frmValidationMessage();
+                obj.lblMessage.Content = "Please Select Employee Name";
+                cmbCEmployeename.BorderBrush = Brushes.Red;
+                obj.ShowDialog();
+            }
+            else if (txtAdm_FollowupFirstName.Text == "")
             {
                 result = true;
                 frmValidationMessage obj = new frmValidationMessage();
@@ -3327,7 +3337,15 @@ namespace CRM_User_Interface
                 obj.ShowDialog();
 
             }
-            else if (cmbFollowup_Occupation.Text == "")
+            else if (cmbCSourceofEnq.Text == "-None-")
+            {
+                result = true;
+                frmValidationMessage obj = new frmValidationMessage();
+                obj.lblMessage.Content = "Please Select Source of Enquiry";
+                cmbCSourceofEnq.BorderBrush = Brushes.Red;
+                obj.ShowDialog();
+            }
+            else if (cmbFollowup_Occupation.Text == "-None-")
             {
                 result = true;
                 frmValidationMessage obj = new frmValidationMessage();
@@ -3344,54 +3362,6 @@ namespace CRM_User_Interface
                 txtCMobile.BorderBrush = Brushes.Red;
                 obj.ShowDialog();
             }
-            else if (txtCAddress.Text == "")
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Enter Follow-up Address";
-                txtCAddress.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
-            else if (cmbFollowup_City.Text == "")
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Select Follow-up City";
-                cmbFollowup_City.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
-            else if (cmbFollowup_State.Text == "")
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Select Followp-up State";
-                cmbFollowup_State.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
-            else if (cmbFollowup_Country.Text == "")
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Select Country";
-                cmbFollowup_Country.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
-            else if (txtCProductDetails.Text == "")
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Enter Products Details";
-                txtCProductDetails.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
-            else if (cmbCEmployeename.SelectedItem == null)
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Select Employee Name";
-                cmbCEmployeename.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
             else if (dp_Cdate.Text == "")
             {
                 result = true;
@@ -3399,22 +3369,13 @@ namespace CRM_User_Interface
                 obj.lblMessage.Content = "Please Select Follow-up Date";
                 dp_Cdate.BorderBrush = Brushes.Red;
                 obj.ShowDialog();
-            }
-            else if (cmbCSourceofEnq.Text == "")
-            {
-                result = true;
-                frmValidationMessage obj = new frmValidationMessage();
-                obj.lblMessage.Content = "Please Select Source of Enquiry";
-                cmbCSourceofEnq.BorderBrush = Brushes.Red;
-                obj.ShowDialog();
-            }
-            
+            }            
             return result;
         }
 
         public void Load_Followup_City()
         {
-            cmbFollowup_City.Text = "Select";
+            cmbFollowup_City.Text = "-None-";
             string q = "SELECT distinct(City) As City FROM tlb_FollowUp ";
             cmd = new SqlCommand(q, con);
             DataTable dt = new DataTable();
@@ -3432,7 +3393,7 @@ namespace CRM_User_Interface
 
         public void Load_Followup_State()
         {
-            cmbFollowup_State.Text = "Select";
+            cmbFollowup_State.Text = "-None-";
             string q = "SELECT distinct(State) As State FROM tlb_FollowUp ";
             cmd = new SqlCommand(q, con);
             DataTable dt = new DataTable();
@@ -3450,7 +3411,7 @@ namespace CRM_User_Interface
 
         public void Load_Followup_Country()
         {
-            cmbFollowup_Country.Text = "Select";
+            cmbFollowup_Country.Text = "-None-";
             string q = "SELECT distinct(Country) As Country FROM tlb_FollowUp ";
             cmd = new SqlCommand(q, con);
             DataTable dt = new DataTable();
@@ -3468,7 +3429,7 @@ namespace CRM_User_Interface
 
         public void Load_Followup_Occupation()
         {
-            cmbFollowup_Occupation.Text = "Select";
+            cmbFollowup_Occupation.Text = "-None-";
             string q = "SELECT distinct(Occupation) As Occupation FROM tlb_FollowUp ";
             cmd = new SqlCommand(q, con);
             DataTable dt = new DataTable();
@@ -3486,7 +3447,7 @@ namespace CRM_User_Interface
 
         public void Load_Followup_Employee()
         {
-            cmbCEmployeename.Text = "Select";
+            cmbCEmployeename.Text = "-None-";
             string q = "SELECT [ID], [EmployeeFirstName]  + ' ' +   [EmployeeLastName] AS [EmployeeName] FROM tbl_Employee ";
             cmd = new SqlCommand(q, con);
             DataTable dt = new DataTable();
@@ -3522,39 +3483,21 @@ namespace CRM_User_Interface
             try
             {
                 balfollow.Flag = 1;
+                balfollow.EmployeeID = cmbCEmployeename.SelectedValue.GetHashCode();
                 balfollow.Followup_ID = lblwalkin.Content.ToString();
+                balfollow.FTitle = cmbFollowpTitle.Text;
                 balfollow.FiratName = txtAdm_FollowupFirstName.Text;
                 balfollow.LastName = txtAdm_FollowupLastName.Text;
                 balfollow.Date_Of_Birth = dp_Dob.Text;
-                balfollow.Occupation = cmbFollowup_Occupation.Text;
                 balfollow.Mobile_No = txtCMobile.Text;
                 balfollow.PhoneNo = txtAdm_Followup_PhoneNo.Text;
-                balfollow.Email_ID = txtCEmailid.Text;
-                balfollow.Address = txtCAddress.Text;
-                balfollow.City = cmbFollowup_City.Text;
-                balfollow.ZipNo = txtFollowup_Zip.Text;
-                balfollow.State = cmbEmp_State.Text;
-                balfollow.Country = cmbFollowup_Country.Text;
-                balfollow.Product_Details = txtCProductDetails.Text;
-                balfollow.EmployeeID = cmbCEmployeename.SelectedValue.GetHashCode();
-                if (rdoCFolloup.IsChecked == true)
-                {
-                    bpg = "Default";
-                }
-                else if (rdoCCustom.IsChecked == true)
-                {
-                    bpg = "Custom";
-                }
-                
-                balfollow.Followup_Type = bpg;
-                balfollow.F_Date = dp_Cdate.Text;
                 balfollow.SourceOfEnquiry = cmbCSourceofEnq.Text;
-                soe = cmbCSourceofEnq.SelectedValue.ToString();
+                soe = cmbCSourceofEnq.Text;
                 if (soe == "Newspaper")
                 {
                     vsoe = 1;
                 }
-                else if (soe == "Poster")
+                else if (soe == "Advertisement")
                 {
                     vsoe = 2;
                 }
@@ -3563,16 +3506,44 @@ namespace CRM_User_Interface
                     vsoe = 3;
 
                 }
-                else if (soe == "Net / Website")
+                else if (soe == "External Referral")
                 {
                     vsoe = 4;
 
                 }
-                else if (soe == "Non")
+                else if (soe == "Online Store")
                 {
                     vsoe = 5;
                 }
+                else if (soe == "Public Relation")
+                {
+                    vsoe = 6;
+                }
+                else if (soe == "Sales Mail Alias")
+                {
+                    vsoe = 7;
+                }
+                else if (soe == "Net / Website")
+                {
+                    vsoe = 8;
+                }
+                else if (soe == "Other")
+                {
+                    vsoe = 9;
+                }
                 balfollow.SourceOfEnquiryID = vsoe;
+                balfollow.Occupation = cmbFollowup_Occupation.Text;
+                balfollow.AnnualRevenue = Convert.ToDouble(txtFollowAnnualRevenue.Text);
+                balfollow.Email_ID = txtCEmailid.Text;
+                balfollow.FaxNo = txtFollowFaxNo.Text;
+                balfollow.Wbsite = txtFollowWebsite.Text;
+                balfollow.Street = txtCAddress.Text;
+                balfollow.City = cmbFollowup_City.Text;
+                balfollow.State = cmbEmp_State.Text;
+                balfollow.ZipNo = txtFollowup_Zip.Text;
+                balfollow.Country = cmbFollowup_Country.Text;
+                balfollow.Description = txtFollowupDescription.Text;
+                balfollow.F_Date = dp_Cdate.Text;
                 balfollow.S_Status = "Active";
                 balfollow.C_Date = System.DateTime.Now.ToString();
                 dalfollow.Follwup_Save_Insert_Update_Delete(balfollow);
@@ -3580,7 +3551,7 @@ namespace CRM_User_Interface
                 frmValidationMessage obj = new frmValidationMessage();
                 obj.lblMessage.Content = "Data Save Successfully";
                 obj.ShowDialog();
-                clearfunctionforfollowup();
+                //clearfunctionforfollowup();
                 Folloupiid();
             }
             catch
@@ -3608,6 +3579,12 @@ namespace CRM_User_Interface
         {
             grdFollowupEntry.Visibility = System.Windows.Visibility.Hidden;
         }
+
+        private void btnFollowCalc_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process P = System.Diagnostics.Process.Start("Calc.exe");
+            P.WaitForInputIdle();
+        }
         #endregion Followup Button Event
 
         private void grdFollowupEntry_Loaded(object sender, RoutedEventArgs e)
@@ -3616,10 +3593,10 @@ namespace CRM_User_Interface
             Load_Followup_Country();
             Load_Followup_State();
             Load_Followup_Occupation();
-            LoadSourceofEnq();
+            //LoadSourceofEnq();
             Load_Followup_Employee();
             Folloupiid();
-            txtAdm_FollowupFirstName.Focus();
+            //txtAdm_FollowupFirstName.Focus();
         }
 
         private void menu_WalkisEntry_Click(object sender, RoutedEventArgs e)
@@ -3629,10 +3606,11 @@ namespace CRM_User_Interface
             Load_Followup_Country();
             Load_Followup_State();
             Load_Followup_Occupation();
-            LoadSourceofEnq();
+            //LoadSourceofEnq();
             Load_Followup_Employee();
             Folloupiid();
-            txtAdm_FollowupFirstName.Focus();
+            //txtAdm_FollowupFirstName.Focus();
+            cmbCEmployeename.Focus();
         }
         #endregion Followup Function
 
@@ -5035,6 +5013,8 @@ namespace CRM_User_Interface
         {
             grdAdm_EmployeeDetails.Visibility = System.Windows.Visibility.Visible;
         }
+
+        
 
     }
 }

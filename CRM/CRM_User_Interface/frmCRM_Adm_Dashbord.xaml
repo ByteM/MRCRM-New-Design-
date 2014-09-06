@@ -829,7 +829,7 @@
 
 
                 </Grid>
-                <Grid x:Name="grdFollowupEntry" Visibility="Hidden" HorizontalAlignment="Center"  Margin="32,1,32,-56" Width="1160" Background="White" Loaded="grdFollowupEntry_Loaded">
+                <Grid x:Name="grdFollowupEntry" Visibility="Visible" HorizontalAlignment="Center"  Margin="32,1,32,3" Width="1160" Background="White" Loaded="grdFollowupEntry_Loaded">
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="1160" Background="#FF4684F0">
                         <Label Content="Walk-Ins Entry" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="16" FontWeight="Bold" FontFamily="Verdana"/>
                         <Label Content="This is where you fill your Walk-Ins details" HorizontalAlignment="Left" Margin="18,32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="14" FontFamily="Verdana"/>
@@ -837,26 +837,26 @@
                     </Grid>
                     <DockPanel>
                         <ScrollViewer HorizontalScrollBarVisibility="Hidden" CanContentScroll="True" UseLayoutRounding="False" PanningMode="VerticalOnly" Margin="0,70.5,0,0">
-                            <Grid Height="816">
-                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,12,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
-                                <Label Content="Lead Information" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontFamily="Tw Cen MT" FontSize="18"/>
+                            <Grid Height="864">
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,10,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Label Content="Lead Information" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontFamily="Tw Cen MT" FontSize="16"/>
                                 <Grid HorizontalAlignment="Left" Height="252" Margin="32,34,0,0" VerticalAlignment="Top" Width="1084" Background="#FFF0F0F0">
                                     <Label Content="Walk-Ins ID:" HorizontalAlignment="Left" Margin="595,7,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
                                     <Label Content="First Name:" HorizontalAlignment="Left" Margin="62,44,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtAdm_FollowupFirstName" HorizontalAlignment="Left" Height="23" Margin="259,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontFamily="Verdana" TabIndex="0"/>
+                                    <TextBox x:Name="txtAdm_FollowupFirstName" HorizontalAlignment="Left" Height="23" Margin="259,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontFamily="Verdana" TabIndex="2"/>
                                     <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="48,80,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <DatePicker x:Name="dp_Dob" HorizontalAlignment="Left" Margin="158,82,0,0" VerticalAlignment="Top" Width="155" FontFamily="Verdana" TabIndex="2" IsTabStop="True"/>
+                                    <DatePicker x:Name="dp_Dob" HorizontalAlignment="Left" Margin="158,82,0,0" VerticalAlignment="Top" Width="155" FontFamily="Verdana" TabIndex="4" IsTabStop="True"/>
                                     <Label Content="Followup ID" x:Name="lblwalkin" HorizontalAlignment="Left" Margin="693,8,0,0" VerticalAlignment="Top" Width="360" Background="#FFD3CFD1" FontFamily="Verdana"/>
                                     <Label Content="Last Name:" HorizontalAlignment="Left" Margin="603,44,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtAdm_FollowupLastName" HorizontalAlignment="Left" Height="23" Margin="694,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontFamily="Verdana" TabIndex="1"/>
+                                    <TextBox x:Name="txtAdm_FollowupLastName" HorizontalAlignment="Left" Height="23" Margin="694,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontFamily="Verdana" TabIndex="3"/>
                                     <Button x:Name="btnSavePhoto4" Content="SavePhoto" Margin="482,156,-11,-44" Background="#FF798CD1" Foreground="#FFFCFCFC" FontSize="14" Click="btnSavePhoto_Click" Visibility="Hidden"/>
                                     <TextBox x:Name="txtMaxID4" HorizontalAlignment="Left" Height="23" Margin="538,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" FontFamily="Verdana" Visibility="Hidden"/>
                                     <TextBox x:Name="txtEmployeeID4" HorizontalAlignment="Left" Height="23" Margin="538,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" FontFamily="Verdana" Visibility="Hidden"/>
                                     <Label Content="Occupation:" HorizontalAlignment="Left" Margin="59,215,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <ComboBox x:Name="cmbFollowup_Occupation" HorizontalAlignment="Left" Margin="157,217,0,0" VerticalAlignment="Top" Width="362" IsEditable="True" FontFamily="Verdana" IsTabStop="True" TabIndex="3"/>
+                                    <ComboBox x:Name="cmbFollowup_Occupation" HorizontalAlignment="Left" Margin="157,217,0,0" VerticalAlignment="Top" Width="362" IsEditable="True" FontFamily="Verdana" IsTabStop="True" TabIndex="11"/>
                                     <Label Content="Lead Owner:" HorizontalAlignment="Left" Margin="55,6,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <ComboBox x:Name="cmbCEmployeename" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Margin="159,8,0,0" IsEditable="True" IsReadOnly="False" Height="25" TabIndex="13" IsTabStop="True" FontFamily="Verdana"/>
-                                    <ComboBox x:Name="cmbFollowpTitle" Text="-None-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="159,47,0,0" IsEditable="True" IsReadOnly="False" Height="23" TabIndex="13" IsTabStop="True">
+                                    <ComboBox x:Name="cmbCEmployeename" HorizontalAlignment="Left" VerticalAlignment="Top" Width="360" Margin="159,8,0,0" IsEditable="True" IsReadOnly="False" Height="25" TabIndex="0" IsTabStop="True" FontFamily="Verdana"/>
+                                    <ComboBox x:Name="cmbFollowpTitle" Text="-None-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="159,47,0,0" IsEditable="True" IsReadOnly="False" Height="23" TabIndex="1" IsTabStop="True">
                                         <ComboBoxItem Content="Mr."/>
                                         <ComboBoxItem Content="Mrs."/>
                                         <ComboBoxItem Content="Ms."/>
@@ -864,72 +864,72 @@
                                         <ComboBoxItem Content="Prof."/>
                                     </ComboBox>
                                     <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="68,115,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtCMobile" HorizontalAlignment="Left" Height="23" Margin="158,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="4"/>
+                                    <TextBox x:Name="txtCMobile" HorizontalAlignment="Left" Height="23" Margin="158,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="6"/>
                                     <Label x:Name="Phone_No_3" Content="Phone No:" HorizontalAlignment="Left" Margin="69,147,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtAdm_Followup_PhoneNo" HorizontalAlignment="Left" Height="23" Margin="158,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="5"/>
+                                    <TextBox x:Name="txtAdm_Followup_PhoneNo" HorizontalAlignment="Left" Height="23" Margin="158,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="8"/>
                                     <Label x:Name="Phone_No_3_Copy" Content="Email ID:" HorizontalAlignment="Left" Margin="616,81,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtCEmailid" HorizontalAlignment="Left" Height="23" Margin="694,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" TabIndex="6"/>
+                                    <TextBox x:Name="txtCEmailid" HorizontalAlignment="Left" Height="23" Margin="694,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" TabIndex="5"/>
                                     <Label x:Name="Phone_No_3_Copy2" Content="Fax:" HorizontalAlignment="Left" Margin="647,115,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtFollowFaxNo" HorizontalAlignment="Left" Height="23" Margin="694,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" TabIndex="6"/>
+                                    <TextBox x:Name="txtFollowFaxNo" HorizontalAlignment="Left" Height="23" Margin="694,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" TabIndex="7"/>
                                     <Label x:Name="Phone_No_3_Copy3" Content="Website:" HorizontalAlignment="Left" Margin="621,148,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtFollowWebsite" HorizontalAlignment="Left" Height="23" Margin="694,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" TabIndex="6"/>
+                                    <TextBox x:Name="txtFollowWebsite" HorizontalAlignment="Left" Height="23" Margin="694,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" TabIndex="9"/>
                                     <Label Content="Lead Source:" HorizontalAlignment="Left" Margin="52,180,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <ComboBox x:Name="cmbCSourceofEnq" Text="-None-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="361" Margin="158,183,0,0" IsEditable="True" IsReadOnly="False" TabIndex="17" IsTabStop="True">
+                                    <ComboBox x:Name="cmbCSourceofEnq" Text="-None-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="361" Margin="158,183,0,0" IsEditable="True" IsReadOnly="False" TabIndex="10" IsTabStop="True" AllowDrop="True">
                                         <ComboBoxItem Content="Newspaper"/>
-                                        <ComboBox>
-                                            <System:String>Advertisement</System:String>
-                                        </ComboBox>
-                                        <ComboBoxItem Content="Employee Referral"/>
+                                        <ComboBoxItem Content="Advertisement"></ComboBoxItem>
+                                        <ComboBoxItem Content="Friends / Colleagues"/>
                                         <ComboBoxItem Content="External Referral"/>
                                         <ComboBoxItem Content="Online Store"/>
                                         <ComboBoxItem Content="Public Relation"/>
                                         <ComboBoxItem Content="Sales Mail Alias"/>
                                         <ComboBoxItem Content="Net / Website"/>
-                                        <ComboBoxItem Content="None"/>
+                                        <ComboBoxItem Content="Other"/>
                                     </ComboBox>
                                     <Label x:Name="Phone_No_3_Copy4" Content="Annual Revenue:" HorizontalAlignment="Left" Margin="571,214,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtFollowAnnualRevenue" HorizontalAlignment="Left" Height="23" Margin="694,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" TabIndex="6"/>
-                                    <Button x:Name="btnFollowCalc" Content="" HorizontalAlignment="Left" Margin="1024,215,0,0" VerticalAlignment="Top" Width="30" Height="25"/>
+                                    <TextBox x:Name="txtFollowAnnualRevenue" HorizontalAlignment="Left" Height="23" Margin="694,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" TabIndex="12" Text="0.00"/>
+                                    <Button x:Name="btnFollowCalc" Content="" HorizontalAlignment="Left" Margin="1024,215,0,0" VerticalAlignment="Top" Width="30" Height="25" TabIndex="13" Click="btnFollowCalc_Click">
+                                                              
+                                    </Button>
                                 </Grid>
-                                <Label Content="Address Information" HorizontalAlignment="Left" Margin="28,295,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
-                                <Grid HorizontalAlignment="Left" Height="120" Margin="35,332,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
+                                <Label Content="Address Information" HorizontalAlignment="Left" Margin="28,293,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="16" FontFamily="Tw Cen MT"/>
+                                <Grid HorizontalAlignment="Left" Height="120" Margin="35,326,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
                                     <Label Content="Street:" HorizontalAlignment="Left" Margin="88,12,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtCAddress" HorizontalAlignment="Left" Height="23" Margin="155,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358" FontFamily="Verdana" TabIndex="7"/>
+                                    <TextBox x:Name="txtCAddress" HorizontalAlignment="Left" Height="23" Margin="155,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358" FontFamily="Verdana" TabIndex="14"/>
                                     <Label Content="City:" HorizontalAlignment="Left" Margin="641,12,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
                                     <Label Content="Zip:" HorizontalAlignment="Left" Margin="646,47,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtFollowup_Zip" HorizontalAlignment="Left" Height="23" Margin="688,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="9"/>
+                                    <TextBox x:Name="txtFollowup_Zip" HorizontalAlignment="Left" Height="23" Margin="688,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="17"/>
                                     <Label Content="Sate:" HorizontalAlignment="Left" Margin="97,47,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
                                     <Label Content="Country:" HorizontalAlignment="Left" Margin="77,81,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <ComboBox x:Name="cmbFollowup_City" HorizontalAlignment="Left" Margin="688,15,0,0" VerticalAlignment="Top" Width="363" IsEditable="True" FontFamily="Verdana" TabIndex="8"/>
-                                    <ComboBox x:Name="cmbFollowup_State" HorizontalAlignment="Left" Margin="155,49,0,0" VerticalAlignment="Top" Width="358" IsEditable="True" FontFamily="Verdana" TabIndex="10"/>
-                                    <ComboBox x:Name="cmbFollowup_Country" HorizontalAlignment="Left" Margin="156,83,0,0" VerticalAlignment="Top" Width="357" IsEditable="True" FontFamily="Verdana" TabIndex="11"/>
+                                    <ComboBox x:Name="cmbFollowup_City" HorizontalAlignment="Left" Margin="688,15,0,0" VerticalAlignment="Top" Width="363" IsEditable="True" FontFamily="Verdana" TabIndex="15" IsTabStop="True"/>
+                                    <ComboBox x:Name="cmbFollowup_State" HorizontalAlignment="Left" Margin="155,49,0,0" VerticalAlignment="Top" Width="358" IsEditable="True" FontFamily="Verdana" TabIndex="16" IsTabStop="True"/>
+                                    <ComboBox x:Name="cmbFollowup_Country" HorizontalAlignment="Left" Margin="156,83,0,0" VerticalAlignment="Top" Width="357" IsEditable="True" FontFamily="Verdana" TabIndex="18" IsTabStop="True"/>
                                 </Grid>
-                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,308,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,302,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
 
-                                <Button x:Name="btnFollowup_Save" Content="Save" HorizontalAlignment="Left" Margin="193,647,0,0" VerticalAlignment="Top" Width="74" Height="26" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnFollowup_Save_Click" TabIndex="18"/>
-                                <Button x:Name="btnfFollowup_Clear" Content="Clear" HorizontalAlignment="Left" Margin="289,647,0,0" VerticalAlignment="Top" Width="76"  Height="25" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnfFollowup_Clear_Click" TabIndex="19" />
-                                <Button x:Name="btnFollowup_Exit" Content="Exit" HorizontalAlignment="Left" Margin="387,647,0,0" VerticalAlignment="Top" Width="76"  Height="25" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnFollowup_Exit_Click" TabIndex="20" />
-                                <Label Content="Description Informatopn" HorizontalAlignment="Left" Margin="30,456,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
-                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,468,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
-                                <Grid HorizontalAlignment="Left" Height="103" Margin="35,490,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
-                                    <Label Content="Description:" HorizontalAlignment="Left" Margin="57,6,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <TextBox x:Name="txtCProductDetails" HorizontalAlignment="Left" Height="85" Margin="154,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="896" FontFamily="Verdana" TabIndex="12"/>
+                                <Button x:Name="btnFollowup_Save" Content="Save" HorizontalAlignment="Left" Margin="193,820,0,0" VerticalAlignment="Top" Width="74" Height="26" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnFollowup_Save_Click" TabIndex="23"/>
+                                <Button x:Name="btnfFollowup_Clear" Content="Clear" HorizontalAlignment="Left" Margin="289,820,0,0" VerticalAlignment="Top" Width="76"  Height="25" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnfFollowup_Clear_Click" TabIndex="24" />
+                                <Button x:Name="btnFollowup_Exit" Content="Exit" HorizontalAlignment="Left" Margin="387,820,0,0" VerticalAlignment="Top" Width="76"  Height="25" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnFollowup_Exit_Click" TabIndex="25" />
+                                <Label Content="Add Products Details" HorizontalAlignment="Left" Margin="30,450,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="16" FontFamily="Tw Cen MT"/>
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,460,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Grid HorizontalAlignment="Left" Height="122" Margin="35,478,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
+                                    <Label Content="Product Name:" HorizontalAlignment="Left" Margin="9,4,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <ComboBox x:Name="cmbFollowUp_ProductName" HorizontalAlignment="Left" Margin="122,7,0,0" VerticalAlignment="Top" Width="386" IsEditable="True" IsTabStop="True" TabIndex="19"/>
+                                    <Button x:Name="btnAddFollwp_AddProducts" Content="Add" HorizontalAlignment="Left" Margin="525,5,0,0" VerticalAlignment="Top" Width="74" Height="26" Background="#FF4562E6" Foreground="#FFF6F6F6" FontSize="16" Click="btnFollowup_Save_Click" TabIndex="20"/>
+                                    <DataGrid x:Name="dgvFoll_AddProducts" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Height="86" Width="1081" BorderBrush="#FFF0F0F0"/>
                                 </Grid>
-                                <Grid HorizontalAlignment="Left" Height="40" Margin="35,597,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
-                                    <RadioButton x:Name="rdoCFolloup" Content="Default" HorizontalAlignment="Left" Margin="538,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.353,-0.667" GroupName="ne" Height="14" Width="81" TabIndex="14"/>
-                                    <RadioButton x:Name="rdoCCustom" Content="Custom" HorizontalAlignment="Left" Margin="636,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.353,-0.667" GroupName="ne" Height="14" Width="81" TabIndex="15"/>
+                                <Grid HorizontalAlignment="Left" Height="40" Margin="35,761,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
                                     <Label Content="Follow-up Date:" HorizontalAlignment="Left" Margin="24,8,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <DatePicker x:Name="dp_Cdate" HorizontalAlignment="Left" Margin="142,10,0,0" VerticalAlignment="Top" Width="130" IsEnabled="True" TabIndex="16" />
+                                    <DatePicker x:Name="dp_Cdate" HorizontalAlignment="Left" Margin="142,10,0,0" VerticalAlignment="Top" Width="130" IsEnabled="True" TabIndex="22" IsTabStop="True" />
                                 </Grid>
-
+                                <Label Content="Description:" HorizontalAlignment="Left" Margin="30,606,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="16" FontFamily="Tw Cen MT"/>
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,616,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Grid HorizontalAlignment="Left" Height="122" Margin="35,634,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
+                                    <Label Content="Description:" HorizontalAlignment="Left" Margin="7,4,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <TextBox x:Name="txtFollowupDescription" HorizontalAlignment="Left" Height="83" Margin="13,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1056" FontFamily="Verdana" TabIndex="21"/>
+                                </Grid>
                             </Grid>
-
                         </ScrollViewer>
-
-
                     </DockPanel>
-
-
                 </Grid>
                 <Grid x:Name="grdCustomerEntry" Visibility="Hidden" HorizontalAlignment="Center"  Margin="180,2,180,5" Width="864" Background="White" Loaded="grdCustomerEntry_Loaded" >
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="864" Background="#FF4655F0">
@@ -1332,15 +1332,15 @@
 
 
                 </Grid>
-                <Grid x:Name="grd_View_FollowupEntry" Visibility="Visible" HorizontalAlignment="Center"  Margin="32,-168,32,-77" Width="1160" Background="White" Loaded="grdFollowupEntry_Loaded">
+                <Grid x:Name="grd_View_FollowupEntry" Visibility="Hidden" HorizontalAlignment="Center"  Margin="32,-168,32,-77" Width="1160" Background="White" Loaded="grdFollowupEntry_Loaded">
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="1160" Background="#FF4684F0">
                         <Label Content="Walk-Ins Details" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="16" FontWeight="Bold" FontFamily="Verdana"/>
                         <Label Content="This is where you fill your Walk-Ins details" HorizontalAlignment="Left" Margin="18,32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="14" FontFamily="Verdana"/>
                         <Image x:Name="imgDealerDetails13" HorizontalAlignment="Left" Height="52" Margin="1083,8,0,0" VerticalAlignment="Top" Width="67" Source="Images/home.png" Stretch="Fill"/>
                     </Grid>
                     <DockPanel>
-                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" CanContentScroll="True" UseLayoutRounding="False" PanningMode="VerticalOnly" Margin="0,70.5,0,0">
-                            <Grid Height="893">
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" CanContentScroll="True" UseLayoutRounding="False" PanningMode="VerticalOnly" Margin="0,70.5,0,-91.5">
+                            <Grid Height="1041">
                                 <Grid HorizontalAlignment="Left" Height="223" Margin="32,6,0,0" VerticalAlignment="Top" Width="1084" Background="#FFF0F0F0">
                                     <Button x:Name="btnSavePhoto6" Content="SavePhoto" Margin="482,156,-11,-44" Background="#FF798CD1" Foreground="#FFFCFCFC" FontSize="14" Click="btnSavePhoto_Click" Visibility="Hidden"/>
                                     <TextBox x:Name="txtMaxID6" HorizontalAlignment="Left" Height="23" Margin="538,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" FontFamily="Verdana" Visibility="Hidden"/>
@@ -1367,7 +1367,8 @@
                                 <Label Content="Comments for this lead" HorizontalAlignment="Left" Margin="28,236,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
                                 <Grid HorizontalAlignment="Left" Height="140" Margin="35,270,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
                                     <Label Content="Comments:" HorizontalAlignment="Left" Margin="9,4,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                                    <DataGrid HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Height="108" Width="1081" BorderBrush="#FFF0F0F0"/>
+                                    <DataGrid x:Name="dgvFollowUp_Comments" HorizontalAlignment="Left" Margin="0,32,0,0" VerticalAlignment="Top" Height="108" Width="1081" BorderBrush="#FFF0F0F0"/>
+                                    <Button x:Name="btnFollowpAddComments" Content="Add..." HorizontalAlignment="Left" Margin="110,8,0,0" VerticalAlignment="Top" Width="68"/>
                                 </Grid>
                                 <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,249,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
                                 <Label Content="Product Interested In" HorizontalAlignment="Left" Margin="30,415,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
@@ -1375,23 +1376,29 @@
                                 <Grid HorizontalAlignment="Left" Height="134" Margin="35,452,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
                                     <Label Content="Product Name:" HorizontalAlignment="Left" Margin="4,6,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
                                     <ComboBox HorizontalAlignment="Left" Margin="109,9,0,0" VerticalAlignment="Top" Width="320" IsEditable="True"/>
-                                    <DataGrid HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Height="96" Width="1081" BorderBrush="#FFF0F0F0"/>
+                                    <DataGrid x:Name="dgvFollowUp_Products" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" Height="96" Width="1081" BorderBrush="#FFF0F0F0"/>
                                     <Button Content="Add Products" HorizontalAlignment="Left" Margin="454,11,0,0" VerticalAlignment="Top" Width="141"/>
 
                                 </Grid>
                                 <Grid HorizontalAlignment="Left" Height="96" Margin="35,624,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
-                                    <DataGrid HorizontalAlignment="Left" VerticalAlignment="Top" Height="95" Width="1081" BorderBrush="#FFF0F0F0" Margin="0,1,0,0"/>
+                                    <DataGrid x:Name="dgvFollowUp_Activities" HorizontalAlignment="Left" VerticalAlignment="Top" Height="95" Width="1081" BorderBrush="#FFF0F0F0" Margin="0,1,0,0"/>
                                 </Grid>
                                 <Label Content="Activities" HorizontalAlignment="Left" Margin="30,592,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
                                 <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,604,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
-                                <Button x:Name="btnFollowpOnlySMS" Content="Only SMS" HorizontalAlignment="Left" Margin="120,597,0,0" VerticalAlignment="Top" Width="87"/>
-                                <Button x:Name="btnFollowpAddActivity" Content="Add Activities" HorizontalAlignment="Left" Margin="226,597,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Button x:Name="btnFollowpOnlySMS" Content="Only SMS" HorizontalAlignment="Left" Margin="138,597,0,0" VerticalAlignment="Top" Width="69"/>
+                                <Button x:Name="btnFollowpAddActivity" Content="Add..." HorizontalAlignment="Left" Margin="226,597,0,0" VerticalAlignment="Top" Width="70"/>
                                 <Grid HorizontalAlignment="Left" Height="79" Margin="35,758,0,0" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
-                                    <DataGrid HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Height="77" Width="1081" BorderBrush="#FFF0F0F0"/>
+                                    <DataGrid x:Name="dgvFollowUp_Compaigns" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Height="77" Width="1081" BorderBrush="#FFF0F0F0"/>
                                 </Grid>
                                 <Label Content="Compaigns" HorizontalAlignment="Left" Margin="30,726,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
                                 <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,738,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
-                                <Button x:Name="btnFollowpAddActivity_Copy" Content="Add Compaigns" HorizontalAlignment="Left" Margin="132,731,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Button x:Name="btnFollowpAddActivity_Copy" Content="Add..." HorizontalAlignment="Left" Margin="138,731,0,0" VerticalAlignment="Top" Width="69"/>
+                                <Grid HorizontalAlignment="Left" Height="79" Margin="35,876,0,-62" VerticalAlignment="Top" Width="1081" Background="#FFF0F0F0">
+                                    <DataGrid x:Name="dgvFollowUp_Attachments" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Height="77" Width="1081" BorderBrush="#FFF0F0F0"/>
+                                </Grid>
+                                <Label Content="Attachments" HorizontalAlignment="Left" Margin="30,844,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="18" FontFamily="Tw Cen MT"/>
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,854,1120,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Button x:Name="btnFollowpAddAttachment" Content="Add..." HorizontalAlignment="Left" Margin="138,849,0,0" VerticalAlignment="Top" Width="69"/>
 
                             </Grid>
 
