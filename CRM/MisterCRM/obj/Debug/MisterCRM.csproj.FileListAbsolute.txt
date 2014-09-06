@@ -10,3 +10,16 @@ D:\Tach4Art\CRM\30 August 2014 CRM\CRM\MisterCRM\obj\Debug\MisterCRM.Properties.
 D:\Tach4Art\CRM\30 August 2014 CRM\CRM\MisterCRM\obj\Debug\MisterCRM.csproj.GenerateResource.Cache
 D:\Tach4Art\CRM\30 August 2014 CRM\CRM\MisterCRM\obj\Debug\MisterCRM.exe
 D:\Tach4Art\CRM\30 August 2014 CRM\CRM\MisterCRM\obj\Debug\MisterCRM.pdb
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\bin\Debug\MisterCRM.exe.config
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\bin\Debug\MisterCRM.exe
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\bin\Debug\MisterCRM.pdb
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.csprojResolveAssemblyReference.cache
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MainWindow.baml
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MainWindow.g.cs
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\App.g.cs
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM_MarkupCompile.cache
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.g.resources
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.Properties.Resources.resources
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.csproj.GenerateResource.Cache
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.exe
+C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.pdb
