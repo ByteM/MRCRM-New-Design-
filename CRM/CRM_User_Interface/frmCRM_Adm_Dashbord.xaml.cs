@@ -66,8 +66,9 @@ namespace CRM_User_Interface
         DAL_Pre_Procurement dpreproc = new DAL_Pre_Procurement();
 
         BAL_Followup balfollow = new BAL_Followup();
+        BAL_FollowUp_Products balfollwproducts = new BAL_FollowUp_Products();
         DAL_Followup dalfollow = new DAL_Followup();
-
+        
         BAL_CustomerEntry bcustomer = new BAL_CustomerEntry();
         DAL_CustomerEntry dcustomer = new DAL_CustomerEntry();
 
@@ -3575,12 +3576,12 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
-            Load_Followup_City();
-            Load_Followup_Country();
-            Load_Followup_State();
-            Load_Followup_Occupation();
-            Load_Followup_Employee();
-            Folloupiid();
+            //Load_Followup_City();
+            //Load_Followup_Country();
+            //Load_Followup_State();
+            //Load_Followup_Occupation();
+            //Load_Followup_Employee();
+            //Folloupiid();
         }
 
         private void btnfFollowup_Clear_Click(object sender, RoutedEventArgs e)
@@ -5117,104 +5118,24 @@ namespace CRM_User_Interface
             }
         }
 
-        //public void FetchProductsID()
-        //{
-
-        //    DataSet ds = new DataSet();
-        //    string qry = "Select ID from Pre_Products where Products123='" + g + "' and  S_Status='Active'  ";
-        //    cmd = new SqlCommand(qry, con);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    // con.Open();
-        //    da.Fill(ds);
-
-        //    if (ds.Tables[0].Rows.Count > 0)
-        //    {
-        //        txtid.Text = ds.Tables[0].Rows[0]["ID"].ToString();
-        //    }
-        //}
-
-
         int i;
 
         public void FollowupProduct_SaveDetails()
         {
-            //if (dtstat.Rows.Count > 0)
-            //{
-            //    for (i = 0; i < dtstat.Rows.Count; i++)
-            //    {
-            //        //  int rowCount = ((DataTable)this.Dgrd_InvoiceADDProducts.DataSource).Rows.Count;
-
-            //        g = dtstat.Rows[i]["Products"].ToString();
-            //        FetchProductsID();
-            //        // string s = "  Select  S.ID,S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  From StockDetails S where ID='"+cmbInvoiceStockProducts .SelectedItem .GetHashCode ()+"' and  S.S_Status='Active' ORDER BY S.C_Date ASC";
-            //        DataSet ds = new DataSet();
-            //        string qry = "Select  Domain_ID , Product_ID ,Brand_ID ,P_Category ,Model_No_ID ,Color_ID From StockDetails S where ID='" + txtid.Text + "' and  S.S_Status='Active' ";
-            //        cmd = new SqlCommand(qry, con);
-            //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //        // con.Open();
-            //        da.Fill(ds);
-
-            //        if (ds.Tables[0].Rows.Count > 0)
-            //        {
-            //            txtd.Text = ds.Tables[0].Rows[0]["Domain_ID"].ToString();
-            //            txtP.Text = ds.Tables[0].Rows[0]["Product_ID"].ToString();
-            //            txtB.Text = ds.Tables[0].Rows[0]["Brand_ID"].ToString();
-            //            txtPC.Text = ds.Tables[0].Rows[0]["P_Category"].ToString();
-            //            txtM.Text = ds.Tables[0].Rows[0]["Model_No_ID"].ToString();
-            //            txtC.Text = ds.Tables[0].Rows[0]["Color_ID"].ToString();
-            //        }
-
-            //        binvd.Flag = 1;
-            //        binvd.Customer_ID = I;
-            //        binvd.Bill_No = lblbillno.Content.ToString();
-            //        binvd.Domain_ID = Convert.ToInt32(txtd.Text);
-            //        binvd.Product_ID = Convert.ToInt32(txtP.Text);
-            //        binvd.Brand_ID = Convert.ToInt32(txtB.Text);
-            //        binvd.P_Category = Convert.ToInt32(txtPC.Text);
-            //        binvd.Model_No_ID = Convert.ToInt32(txtM.Text);
-            //        binvd.Color_ID = Convert.ToInt32(txtC.Text);
-            //        binvd.Products123 = dtstat.Rows[i]["Products"].ToString();
-            //        binvd.Per_Product_Price = Convert.ToDouble(dtstat.Rows[i]["RatePer_Product"].ToString());
-            //        binvd.Qty = Convert.ToDouble(dtstat.Rows[i]["Qty"].ToString());
-            //        binvd.C_Price = Convert.ToDouble(dtstat.Rows[i]["Total_Price"].ToString());
-            //        binvd.Tax_Name = dtstat.Rows[i]["Tax Name"].ToString();
-            //        binvd.Tax = Convert.ToDouble(dtstat.Rows[i]["Taxes %"].ToString());
-            //        binvd.Total_Price = Convert.ToDouble(dtstat.Rows[i]["SubTotal"].ToString());
-            //        if (pm_c == "Cash")
-            //        {
-            //            binvd.Payment_Mode = "Cash";
-            //        }
-            //        else if (pm_ch == "Cheque")
-            //        {
-            //            binvd.Payment_Mode = "Cheque";
-            //        }
-            //        else if (pm_f == "Finance")
-            //        {
-            //            binvd.Payment_Mode = "Finance";
-            //        }
-            //        else if (pm_ins == "Installment")
-            //        {
-            //            binvd.Payment_Mode = "Installment";
-            //        }
-            //        binvd.S_Status = "Active";
-            //        binvd.C_Date = System.DateTime.Now.ToShortDateString();
-            //        dinvd.InvoiceDetails_Save(binvd);
-            //        MessageBox.Show("Done");
-            //        updateQuantity();
-            //    }
-            //}
-            foreach(DataRow dgi in dgvFoll_AddProducts.Items)
+            if (dtstat.Rows.Count > 0)
             {
-                string fid = dgi[0].ToString();
-                string fpid = dgi[1].ToString();
-                balfollow.Flag = 1;
-                balfollow.FolloupProductID = Convert.ToInt32(txtFollowupID.Text);
-                balfollow.FProductID = Convert.ToInt32(fpid);
-                balfollow.S_Status = "Active";
-                balfollow.C_Date = System.DateTime.Now.ToString();
-                dalfollow.FollwupProducts_Save_Insert_Update_Delete(balfollow);
-
+                for (i = 0; i < dtstat.Rows.Count; i++)
+                {                    
+                    balfollwproducts.Flag = 1;
+                    balfollwproducts.FolloupProductID = Convert.ToInt32(txtFollowupID.Text);
+                    balfollwproducts.FProductID = Convert.ToInt32(dtstat.Rows[i]["ID"].ToString());
+                    balfollwproducts.S_Status = "Active";
+                    balfollwproducts.C_Date = System.DateTime.Now.ToShortDateString();
+                    dalfollow.FollwupProducts_Save_Insert_Update_Delete(balfollwproducts);
+                    MessageBox.Show("Done");
+                }
             }
+            
             
         }
 

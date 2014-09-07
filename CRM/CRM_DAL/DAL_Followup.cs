@@ -61,19 +61,19 @@ namespace CRM_DAL
             finally { con.Close(); }
         }
 
-        public int FollwupProducts_Save_Insert_Update_Delete(BAL_Followup balfp)
+        public int FollwupProducts_Save_Insert_Update_Delete(BAL_FollowUp_Products balfproduct)
         {
             try
             {
 
                 con.Open();
-                cmd = new SqlCommand("SP_FollowupProducts", con);
+                cmd = new SqlCommand("SP_FollowUpProducts", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
-                cmd.Parameters.AddWithValue("@FolloupProductID", balfp.FolloupProductID);
-                cmd.Parameters.AddWithValue("@FProductID", balfp.FProductID);
-                cmd.Parameters.AddWithValue("@S_Status", balfp.S_Status);
-                cmd.Parameters.AddWithValue("@C_Date", balfp.C_Date);
+                cmd.Parameters.AddWithValue("@FolloupProductID", balfproduct.FolloupProductID);
+                cmd.Parameters.AddWithValue("@FProductID", balfproduct.FProductID);
+                cmd.Parameters.AddWithValue("@S_Status", balfproduct.S_Status);
+                cmd.Parameters.AddWithValue("@C_Date", balfproduct.C_Date);
                 int i = cmd.ExecuteNonQuery();
                 return i;
             }
