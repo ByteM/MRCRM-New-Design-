@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="frmAddProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="frmCRM_Adm_Dashbord.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,6 +68,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmAddProducts.xaml.cs">
+      <DependentUpon>frmAddProducts.xaml</DependentUpon>
     </Compile>
     <Compile Include="frmCRM_Adm_Dashbord.xaml.cs">
       <DependentUpon>frmCRM_Adm_Dashbord.xaml</DependentUpon>
@@ -187,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Calculator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Search.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

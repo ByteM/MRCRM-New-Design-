@@ -5014,6 +5014,14 @@ namespace CRM_User_Interface
             grdAdm_EmployeeDetails.Visibility = System.Windows.Visibility.Visible;
         }
 
+        private void hlAddProducts_Click(object sender, RoutedEventArgs e)
+        {
+            frmAddProducts obj = new frmAddProducts();
+            obj.ShowDialog();
+        }
+
+       
+
         
 
     }
