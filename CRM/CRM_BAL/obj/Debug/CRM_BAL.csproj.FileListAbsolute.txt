@@ -9,6 +9,5 @@ C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\obj\Debug
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\obj\Debug\CRM_BAL.pdb
 C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\bin\Debug\CRM_BAL.dll
 C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\bin\Debug\CRM_BAL.pdb
-C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\obj\Debug\CRM_BAL.csprojResolveAssemblyReference.cache
 C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\obj\Debug\CRM_BAL.dll
 C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_BAL\obj\Debug\CRM_BAL.pdb

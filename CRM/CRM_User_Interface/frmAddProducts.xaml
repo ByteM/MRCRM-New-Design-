@@ -1,7 +1,7 @@
 ﻿<Window x:Class="CRM_User_Interface.frmAddProducts"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="frmAddProducts" Height="472.557" Width="904.512" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded">
+        Title="frmAddProducts" Height="473.684" Width="904.512" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded">
 
     <Border BorderBrush="Black" BorderThickness="15,30,15,20" HorizontalAlignment="Left" Height="473" VerticalAlignment="Top" Width="905">
         <Grid>
@@ -26,7 +26,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <Button x:Name="btnDone" Content="Done" HorizontalAlignment="Left" Margin="739,12,0,0" VerticalAlignment="Top" Width="75" FontFamily="Verdana" Height="24" Click="btnDone_Click"/>
+            <Button x:Name="btnDone" Content="Done" HorizontalAlignment="Left" IsDefault="True"  Margin="739,12,0,0" VerticalAlignment="Top" Width="75" FontFamily="Verdana" Height="24" Click="btnDone_Click"/>
             <ComboBox x:Name="cmbAdm_AllProducts_Search" Text="-None-" HorizontalAlignment="Left" Margin="140,12,0,0" VerticalAlignment="Top" Width="202" IsEditable="True" FontFamily="Verdana">
                 <ComboBoxItem>Product Type</ComboBoxItem>
                 <ComboBoxItem>Brand</ComboBoxItem>
@@ -35,7 +35,15 @@
                 <ComboBoxItem>Color</ComboBoxItem>
                 <ComboBoxItem>Price</ComboBoxItem>
             </ComboBox>
-            <TextBox x:Name="txtProductsID" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Verdana" Visibility="Hidden"/>
+            <Grid HorizontalAlignment="Left" Height="196" Margin="127,453,0,-226" VerticalAlignment="Top" Width="470" Background="#FFFBF7F5">
+                <TextBox x:Name="txtPRoductName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <TextBox x:Name="txtBrandName" HorizontalAlignment="Left" Height="23" Margin="10,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <TextBox x:Name="txtPRoductCategory" HorizontalAlignment="Left" Height="23" Margin="10,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <TextBox x:Name="txtModelNo" HorizontalAlignment="Left" Height="23" Margin="10,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <TextBox x:Name="txtColor" HorizontalAlignment="Left" Height="23" Margin="10,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="23" Margin="10,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+                <TextBox x:Name="txtProductsID" HorizontalAlignment="Left" Height="23" Margin="362,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Verdana"/>
+            </Grid>
         </Grid>
     </Border>
 

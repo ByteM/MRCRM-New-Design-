@@ -44,14 +44,12 @@ namespace CRM_User_Interface
 
         }
 
+        static DataTable dtstat = new DataTable();
+
         private void btnDone_Click(object sender, RoutedEventArgs e)
-        {
-            frmCRM_Adm_Dashbord obj = new frmCRM_Adm_Dashbord();
-            obj.ProductID123(txtProductsID.Text);
-            obj.AddAllProducts_Details();
-            obj.Show();
+        {            
+            DialogResult = true;
             this.Close();
-            txtProductsID.Text = "";
         }
 
         public void AllProducts_Details()
@@ -166,7 +164,17 @@ namespace CRM_User_Interface
                 var id1 = (DataRowView)dgvAdm_AllProducts.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
                 PK_ID = Convert.ToInt32(id1.Row["ID"].ToString());
                 con.Open();
-                string sqlquery = "SELECT * FROM Pre_Products where ID='" + PK_ID + "' ";
+                //string sqlquery = "SELECT * FROM Pre_Products where ID='" + PK_ID + "' ";
+                string sqlquery = "SELECT P.[ID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[Price] " +
+                      ",DM.[Domain_Name],PM.[Product_Name], B.[Brand_Name] , PC.[Product_Category] ,MN.[Model_No] ,C.[Color] " +
+                      "FROM [Pre_Products] P " +
+                      "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
+                      "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
+                      "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
+                      "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
+                      "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
+                      "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
+                      "WHERE P.[ID]= '" + PK_ID + "'";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -174,6 +182,12 @@ namespace CRM_User_Interface
                 if (dt.Rows.Count > 0)
                 {
                     txtProductsID.Text = dt.Rows[0]["ID"].ToString();
+                    txtPRoductName.Text = dt.Rows[0]["Product_Name"].ToString();
+                    txtBrandName.Text = dt.Rows[0]["Brand_Name"].ToString();
+                    txtPRoductCategory.Text = dt.Rows[0]["Product_Category"].ToString();
+                    txtModelNo.Text = dt.Rows[0]["Model_No"].ToString();
+                    txtColor.Text = dt.Rows[0]["Color"].ToString();
+                    txtPrice.Text = dt.Rows[0]["Price"].ToString();
                 }
                 frmCRM_Adm_Dashbord obj = new frmCRM_Adm_Dashbord();
                 obj.ProductID123(txtProductsID.Text);

@@ -58,5 +58,10 @@ namespace CRM_BAL
         public string S_Status { get; set; }
         
         public string C_Date { get; set; }
+
+        public int FolloupProductID { get; set; }
+
+        public int FProductID { get; set; }
+        
     }
 }

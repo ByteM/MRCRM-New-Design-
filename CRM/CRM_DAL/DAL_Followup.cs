@@ -60,5 +60,29 @@ namespace CRM_DAL
             }
             finally { con.Close(); }
         }
+
+        public int FollwupProducts_Save_Insert_Update_Delete(BAL_Followup balfp)
+        {
+            try
+            {
+
+                con.Open();
+                cmd = new SqlCommand("SP_FollowupProducts", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Flag", 1);
+                cmd.Parameters.AddWithValue("@FolloupProductID", balfp.FolloupProductID);
+                cmd.Parameters.AddWithValue("@FProductID", balfp.FProductID);
+                cmd.Parameters.AddWithValue("@S_Status", balfp.S_Status);
+                cmd.Parameters.AddWithValue("@C_Date", balfp.C_Date);
+                int i = cmd.ExecuteNonQuery();
+                return i;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+        }
     }
 }

@@ -3553,7 +3553,19 @@ namespace CRM_User_Interface
                 obj.lblMessage.Content = "Data Save Successfully";
                 obj.ShowDialog();
                 //clearfunctionforfollowup();
-                Folloupiid();
+                GetMax_FollowUpID();
+                try
+                {
+                    FollowupProduct_SaveDetails();
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
             catch
             {
@@ -5018,7 +5030,33 @@ namespace CRM_User_Interface
         private void hlAddProducts_Click(object sender, RoutedEventArgs e)
         {
             frmAddProducts obj = new frmAddProducts();
-            obj.Show();
+            obj.ShowDialog();
+            if(obj.DialogResult == true)
+            {
+                if (dtstat.Rows.Count == 0)
+                {
+                    dtstat.Columns.Add("ID");
+                    dtstat.Columns.Add("Product_Name");
+                    dtstat.Columns.Add("Brand_Name");
+                    dtstat.Columns.Add("Product_Category");
+                    dtstat.Columns.Add("Model_No");
+                    dtstat.Columns.Add("Color");
+                    dtstat.Columns.Add("Price");
+                }
+                DataRow dr = dtstat.NewRow();
+                dr["ID"] = obj.txtProductsID.Text;
+                dr["Product_Name"] = obj.txtPRoductName.Text;
+                dr["Brand_Name"] = obj.txtBrandName.Text;
+                dr["Product_Category"] = obj.txtPRoductCategory.Text;
+                dr["Model_No"] = obj.txtModelNo.Text;
+                dr["Color"] = obj.txtColor.Text;
+                dr["Price"] = obj.txtPrice.Text;
+
+                dtstat.Rows.Add(dr);
+                dgvFoll_AddProducts.ItemsSource = dtstat.DefaultView;
+                dgvFoll_AddProducts.CanUserAddRows = false;
+            }
+            //obj.Show();
         }
 
         public void ProductID123(string piid)
@@ -5026,7 +5064,159 @@ namespace CRM_User_Interface
             txtProductID.Text = piid;
         }
 
-        
+        public void AddAllProducts_Details()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT P.[ID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[Price] " +
+                      ",DM.[Domain_Name],PM.[Product_Name], B.[Brand_Name] , PC.[Product_Category] ,MN.[Model_No] ,C.[Color] " +
+                      "FROM [Pre_Products] P " +
+                      "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
+                      "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
+                      "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
+                      "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
+                      "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
+                      "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
+                      "WHERE P.[ID]= '" + txtProductID.Text + "' AND P.[S_Status] = 'Active' ORDER BY PM.[Product_Name] ASC";
+                
+                //str = str + " P.[S_Status] = 'Active' ORDER BY PM.[Product_Name] ASC ";
+                //str = str + " S_Status = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                dgvFoll_AddProducts.ItemsSource = ds.Tables[0].DefaultView;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void GetMax_FollowUpID()
+        {
+            string sqlquery = "SELECT max(ID) as ID FROM tlb_FollowUp";
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                txtMax_FolloupID.Text = dt.Rows[0]["ID"].ToString();
+                txtFollowupID.Text = txtMax_FolloupID.Text.Trim();
+            }
+        }
+
+        //public void FetchProductsID()
+        //{
+
+        //    DataSet ds = new DataSet();
+        //    string qry = "Select ID from Pre_Products where Products123='" + g + "' and  S_Status='Active'  ";
+        //    cmd = new SqlCommand(qry, con);
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    // con.Open();
+        //    da.Fill(ds);
+
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        txtid.Text = ds.Tables[0].Rows[0]["ID"].ToString();
+        //    }
+        //}
+
+
+        int i;
+
+        public void FollowupProduct_SaveDetails()
+        {
+            //if (dtstat.Rows.Count > 0)
+            //{
+            //    for (i = 0; i < dtstat.Rows.Count; i++)
+            //    {
+            //        //  int rowCount = ((DataTable)this.Dgrd_InvoiceADDProducts.DataSource).Rows.Count;
+
+            //        g = dtstat.Rows[i]["Products"].ToString();
+            //        FetchProductsID();
+            //        // string s = "  Select  S.ID,S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  From StockDetails S where ID='"+cmbInvoiceStockProducts .SelectedItem .GetHashCode ()+"' and  S.S_Status='Active' ORDER BY S.C_Date ASC";
+            //        DataSet ds = new DataSet();
+            //        string qry = "Select  Domain_ID , Product_ID ,Brand_ID ,P_Category ,Model_No_ID ,Color_ID From StockDetails S where ID='" + txtid.Text + "' and  S.S_Status='Active' ";
+            //        cmd = new SqlCommand(qry, con);
+            //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //        // con.Open();
+            //        da.Fill(ds);
+
+            //        if (ds.Tables[0].Rows.Count > 0)
+            //        {
+            //            txtd.Text = ds.Tables[0].Rows[0]["Domain_ID"].ToString();
+            //            txtP.Text = ds.Tables[0].Rows[0]["Product_ID"].ToString();
+            //            txtB.Text = ds.Tables[0].Rows[0]["Brand_ID"].ToString();
+            //            txtPC.Text = ds.Tables[0].Rows[0]["P_Category"].ToString();
+            //            txtM.Text = ds.Tables[0].Rows[0]["Model_No_ID"].ToString();
+            //            txtC.Text = ds.Tables[0].Rows[0]["Color_ID"].ToString();
+            //        }
+
+            //        binvd.Flag = 1;
+            //        binvd.Customer_ID = I;
+            //        binvd.Bill_No = lblbillno.Content.ToString();
+            //        binvd.Domain_ID = Convert.ToInt32(txtd.Text);
+            //        binvd.Product_ID = Convert.ToInt32(txtP.Text);
+            //        binvd.Brand_ID = Convert.ToInt32(txtB.Text);
+            //        binvd.P_Category = Convert.ToInt32(txtPC.Text);
+            //        binvd.Model_No_ID = Convert.ToInt32(txtM.Text);
+            //        binvd.Color_ID = Convert.ToInt32(txtC.Text);
+            //        binvd.Products123 = dtstat.Rows[i]["Products"].ToString();
+            //        binvd.Per_Product_Price = Convert.ToDouble(dtstat.Rows[i]["RatePer_Product"].ToString());
+            //        binvd.Qty = Convert.ToDouble(dtstat.Rows[i]["Qty"].ToString());
+            //        binvd.C_Price = Convert.ToDouble(dtstat.Rows[i]["Total_Price"].ToString());
+            //        binvd.Tax_Name = dtstat.Rows[i]["Tax Name"].ToString();
+            //        binvd.Tax = Convert.ToDouble(dtstat.Rows[i]["Taxes %"].ToString());
+            //        binvd.Total_Price = Convert.ToDouble(dtstat.Rows[i]["SubTotal"].ToString());
+            //        if (pm_c == "Cash")
+            //        {
+            //            binvd.Payment_Mode = "Cash";
+            //        }
+            //        else if (pm_ch == "Cheque")
+            //        {
+            //            binvd.Payment_Mode = "Cheque";
+            //        }
+            //        else if (pm_f == "Finance")
+            //        {
+            //            binvd.Payment_Mode = "Finance";
+            //        }
+            //        else if (pm_ins == "Installment")
+            //        {
+            //            binvd.Payment_Mode = "Installment";
+            //        }
+            //        binvd.S_Status = "Active";
+            //        binvd.C_Date = System.DateTime.Now.ToShortDateString();
+            //        dinvd.InvoiceDetails_Save(binvd);
+            //        MessageBox.Show("Done");
+            //        updateQuantity();
+            //    }
+            //}
+            foreach(DataRow dgi in dgvFoll_AddProducts.Items)
+            {
+                string fid = dgi[0].ToString();
+                string fpid = dgi[1].ToString();
+                balfollow.Flag = 1;
+                balfollow.FolloupProductID = Convert.ToInt32(txtFollowupID.Text);
+                balfollow.FProductID = Convert.ToInt32(fpid);
+                balfollow.S_Status = "Active";
+                balfollow.C_Date = System.DateTime.Now.ToString();
+                dalfollow.FollwupProducts_Save_Insert_Update_Delete(balfollow);
+
+            }
+            
+        }
 
     }
 }
