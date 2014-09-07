@@ -27,7 +27,7 @@ namespace CRM_User_Interface
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class frmCRM_Adm_Dashbord : Window
     {
 
         #region Global Veriable
@@ -81,7 +81,7 @@ namespace CRM_User_Interface
         DAL_FinalDealerUpdate dFup = new DAL_FinalDealerUpdate();
 
         #region Load Event
-        public MainWindow()
+        public frmCRM_Adm_Dashbord()
         {
             InitializeComponent();
 
@@ -103,7 +103,8 @@ namespace CRM_User_Interface
         
         private void btnAPPClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
+            //this.Close();
         }
 
         #region Dealer Function
@@ -5017,10 +5018,13 @@ namespace CRM_User_Interface
         private void hlAddProducts_Click(object sender, RoutedEventArgs e)
         {
             frmAddProducts obj = new frmAddProducts();
-            obj.ShowDialog();
+            obj.Show();
         }
 
-       
+        public void ProductID123(string piid)
+        {
+            txtProductID.Text = piid;
+        }
 
         
 

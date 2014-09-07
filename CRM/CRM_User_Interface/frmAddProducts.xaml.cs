@@ -15,6 +15,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Globalization;
+using CRM_User_Interface;
 
 namespace CRM_User_Interface
 {
@@ -45,7 +46,12 @@ namespace CRM_User_Interface
 
         private void btnDone_Click(object sender, RoutedEventArgs e)
         {
-
+            frmCRM_Adm_Dashbord obj = new frmCRM_Adm_Dashbord();
+            obj.ProductID123(txtProductsID.Text);
+            obj.AddAllProducts_Details();
+            obj.Show();
+            this.Close();
+            txtProductsID.Text = "";
         }
 
         public void AllProducts_Details()
@@ -143,7 +149,43 @@ namespace CRM_User_Interface
 
         private void txtAdm_AllProducts_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
+            btnFollowupBrowse.IsEnabled = true;
             AllProducts_Details();
+        }
+
+        
+        
+
+        int PK_ID;
+
+        private void dgvAdm_AllProducts_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            btnFollowupBrowse.IsEnabled = false;
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_AllProducts.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["ID"].ToString());
+                con.Open();
+                string sqlquery = "SELECT * FROM Pre_Products where ID='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    txtProductsID.Text = dt.Rows[0]["ID"].ToString();
+                }
+                frmCRM_Adm_Dashbord obj = new frmCRM_Adm_Dashbord();
+                obj.ProductID123(txtProductsID.Text);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void btnFollowupBrowse_Click(object sender, RoutedEventArgs e)

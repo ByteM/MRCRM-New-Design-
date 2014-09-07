@@ -14,14 +14,14 @@
             </Button>
             <Button x:Name="btnNewProducts" Content="New Products" HorizontalAlignment="Left" Margin="623,12,0,0" VerticalAlignment="Top" Width="100" Height="24" Click="btnNewProducts_Click" FontFamily="Verdana"/>
             <Grid HorizontalAlignment="Left" Height="375" Margin="4,48,0,0" VerticalAlignment="Top" Width="867" Background="#FFF0F0F0">
-                <DataGrid x:Name="dgvAdm_AllProducts" VerticalAlignment="Top" Height="375" AutoGenerateColumns="False" RowHeight="25" BorderBrush="White" FontFamily="Verdana" ColumnHeaderHeight="30">
+                <DataGrid x:Name="dgvAdm_AllProducts" IsReadOnly="True" VerticalAlignment="Top" Height="375" AutoGenerateColumns="False" RowHeight="25" BorderBrush="#FFFCFCFC" FontFamily="Verdana" ColumnHeaderHeight="30" SelectedCellsChanged="dgvAdm_AllProducts_SelectedCellsChanged" GridLinesVisibility="None" BorderThickness="0">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID1" Visibility="Visible" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Product Type" Width="170"  x:Name="grdFinalPro_Name2" SortMemberPath="Product_Name" Binding="{Binding Product_Name, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Brand Name" Width="170"  x:Name="grdFinalPro_MobileNo2" SortMemberPath="Brand_Name" Binding="{Binding Brand_Name, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Product Category" Width="160"  x:Name="grdFinalPro_PhoneNo2" SortMemberPath="Product_Category" Binding="{Binding Product_Category, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Model No" Width="160"  x:Name="grdFinalPro_Products2" SortMemberPath="Model_No" Binding="{Binding Model_No, Mode=TwoWay}" />
-                        <DataGridTextColumn Header="Colour" Width="100"  x:Name="grdFinalPro_Qty2" SortMemberPath="Color" Binding="{Binding Color, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="ID" Visibility="Hidden" Width="0"  x:Name="grdFinalPro_ID1" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="Product Type" Width="172"  x:Name="grdFinalPro_Name2" SortMemberPath="Product_Name" Binding="{Binding Product_Name, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="Brand Name" Width="172"  x:Name="grdFinalPro_MobileNo2" SortMemberPath="Brand_Name" Binding="{Binding Brand_Name, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="Product Category" Width="165"  x:Name="grdFinalPro_PhoneNo2" SortMemberPath="Product_Category" Binding="{Binding Product_Category, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="Model No" Width="164"  x:Name="grdFinalPro_Products2" SortMemberPath="Model_No" Binding="{Binding Model_No, Mode=TwoWay}" />
+                        <DataGridTextColumn Header="Colour" Width="110"  x:Name="grdFinalPro_Qty2" SortMemberPath="Color" Binding="{Binding Color, Mode=TwoWay}" />
                         <DataGridTextColumn Header="Price" Width="80"  x:Name="grdFinalPro_FinalPrice1" SortMemberPath="Price" Binding="{Binding Price, Mode=TwoWay}" />
                     </DataGrid.Columns>
                 </DataGrid>
@@ -35,6 +35,7 @@
                 <ComboBoxItem>Color</ComboBoxItem>
                 <ComboBoxItem>Price</ComboBoxItem>
             </ComboBox>
+            <TextBox x:Name="txtProductsID" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" FontFamily="Verdana" Visibility="Hidden"/>
         </Grid>
     </Border>
 

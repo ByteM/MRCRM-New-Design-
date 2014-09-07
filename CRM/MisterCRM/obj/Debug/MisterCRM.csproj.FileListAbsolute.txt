@@ -23,3 +23,13 @@ C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Deb
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.csproj.GenerateResource.Cache
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.exe
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\bin\Debug\MisterCRM.exe.config
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\bin\Debug\MisterCRM.exe
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\bin\Debug\MisterCRM.pdb
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.csprojResolveAssemblyReference.cache
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\App.g.cs
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM_MarkupCompile.cache
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.Properties.Resources.resources
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.csproj.GenerateResource.Cache
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.exe
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\MisterCRM\obj\Debug\MisterCRM.pdb
