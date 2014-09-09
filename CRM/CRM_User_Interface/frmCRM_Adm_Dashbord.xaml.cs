@@ -5139,5 +5139,11 @@ namespace CRM_User_Interface
             
         }
 
+        private void btnSaleProductsFetch_Click(object sender, RoutedEventArgs e)
+        {
+            StockProducts sp = new StockProducts();
+            sp.Show();
+        }
+
     }
 }
