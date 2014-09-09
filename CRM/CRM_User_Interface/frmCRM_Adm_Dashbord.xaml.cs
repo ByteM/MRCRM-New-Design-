@@ -68,7 +68,10 @@ namespace CRM_User_Interface
         BAL_Followup balfollow = new BAL_Followup();
         BAL_FollowUp_Products balfollwproducts = new BAL_FollowUp_Products();
         DAL_Followup dalfollow = new DAL_Followup();
-        
+
+        BAL_AddComments balfollwpcomt = new BAL_AddComments();
+        DAL_AddComments dalfollowcomt = new DAL_AddComments();
+
         BAL_CustomerEntry bcustomer = new BAL_CustomerEntry();
         DAL_CustomerEntry dcustomer = new DAL_CustomerEntry();
 
@@ -3576,6 +3579,8 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
+
+            FollowUp_FillData();
             //Load_Followup_City();
             //Load_Followup_Country();
             //Load_Followup_State();
@@ -5139,11 +5144,331 @@ namespace CRM_User_Interface
             
         }
 
+<<<<<<< HEAD
         private void btnSaleProductsFetch_Click(object sender, RoutedEventArgs e)
         {
             StockProducts sp = new StockProducts();
             sp.Show();
         }
 
+=======
+        public void FollowUp_FillData()
+        {
+            try
+            {
+                con.Open();
+                string sqlquery = "SELECT F.[ID],F.[EmployeeID],F.[Followup_ID],F.[FTitle] + ' ' + F.[FiratName] + ' ' + F.[LastName] AS [FollowupName],F.[Date_Of_Birth] " +
+                                  ",F.[Mobile_No],F.[Phone_No],F.[SourceOfEnquiry],F.[Occupation],F.[AnnualRevenue],F.[Email_ID],F.[FaxNo],F.[Wbsite],F.[Street],F.[City],F.[State],F.[ZipNo],F.[Country],F.[Description],F.[F_Date] " +
+                                  ",E.[EmployeeFirstName] + ' ' + E.[EmployeeLastName] AS [EmployeeName] " +
+                                  "FROM [tlb_FollowUp] F " +
+                                  "INNER JOIN [tbl_Employee] E ON E.[ID]=F.[EmployeeID] " +
+                                  "where ID='" + txtFollowupID.Text + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    //leadinformation
+                    txtFollowupViewID.Text = dt.Rows[0]["ID"].ToString();
+                    lblFollow_upName.Content = dt.Rows[0]["FollowupName"].ToString();
+                    lblLeadOwnerName.Content = dt.Rows[0]["EmployeeName"].ToString();
+                    lblLeadOwnerPhNo.Content = dt.Rows[0]["Phone_No"].ToString();
+                    lblLeadOwnerMbNo.Content = dt.Rows[0]["Mobile_No"].ToString();
+                    lblFLeadName.Content = dt.Rows[0]["FollowupName"].ToString();
+                    lblFLeadOwner.Content = dt.Rows[0]["EmployeeName"].ToString();
+                    lblFPhoneNo.Content = dt.Rows[0]["Phone_No"].ToString();
+                    lblFMobileNo.Content = dt.Rows[0]["Mobile_No"].ToString();
+                    lblFDOB.Content = dt.Rows[0]["Date_Of_Birth"].ToString();
+                    lblFLeadSource.Content = dt.Rows[0]["SourceOfEnquiry"].ToString();
+                    lblFAnulRevenu.Content = dt.Rows[0]["AnnualRevenue"].ToString();
+                    lblFEmail.Content = dt.Rows[0]["Email_ID"].ToString();
+                    lblFFax.Content = dt.Rows[0]["FaxNo"].ToString();
+                    lblFWebsite.Content = dt.Rows[0]["Website"].ToString();
+                    lblFOccupation.Content = dt.Rows[0]["Occupation"].ToString();
+                    //address information
+                    lblFStreet.Content = dt.Rows[0]["Street"].ToString();
+                    lblFCity.Content = dt.Rows[0]["City"].ToString();
+                    lblFState.Content = dt.Rows[0]["State"].ToString();
+                    lblFCountry.Content = dt.Rows[0]["Country"].ToString();
+                    lblFZipCode.Content = dt.Rows[0]["ZipNo"].ToString();
+                    //description
+                    lblFDesctiption.Content = dt.Rows[0]["Description"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            btnAdm_Emp_Save.Content = "Update";
+        }
+
+        private void btnFollowup_ViewInfor_Click(object sender, RoutedEventArgs e)
+        {
+            grd_LeadInformation.Visibility = System.Windows.Visibility.Visible;
+            FollowUp_FillData();
+        }
+
+        private void btnFollowupBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            var fd = new Microsoft.Win32.OpenFileDialog();
+            //   fd.Filter = "*.jpeg";
+
+            fd.Filter = "All image formats (*.jpg; *.jpeg; *.bmp; *.png; *.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.gif";
+            var ret = fd.ShowDialog();
+
+            if (ret.GetValueOrDefault())
+            {
+
+                txtFollowup_PhotoPath.Text = fd.FileName;
+                filepath = fd.FileName;
+
+                try
+                {
+                    bmp = new BitmapImage(new Uri(fd.FileName, UriKind.Absolute));
+                    imgWalkins.Source = bmp;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Invalid image file.", "Browse", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+        }
+
+        private void btnFollowupSavePhoto(object sender, RoutedEventArgs e)
+        {
+            string imagepath = filepath.ToString();
+            string picname = imagepath.Substring(imagepath.LastIndexOf('\\'));
+
+            string path = AppDomain.CurrentDomain.BaseDirectory + '\\';
+            if (!(System.IO.Directory.Exists(path)))
+            {
+                System.IO.Directory.CreateDirectory(path);
+            }
+            string path1 = path + "\\images\\WalkIns\\" + picname + ".JPG";
+            ///
+            using (System.IO.FileStream filestream = new System.IO.FileStream(Convert.ToString(path1), System.IO.FileMode.Create))
+            {
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bmp));
+                encoder.QualityLevel = 100;
+                encoder.Save(filestream);
+            }
+            //MessageBox.Show("Image Successfully Saved :" + path + "'\'Image'\'" + picname);
+            frmValidationMessage obj = new frmValidationMessage();
+            obj.lblMessage.Content = "Image Save Successfully";
+            obj.ShowDialog();
+        }
+
+        
+        #region FollowupComments Function
+        public void ViewAllComments_Details()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT [ID],[FollowupID],[Comments],[C_Date] FROM [tlb_FollowUpComments] WHERE [FollowupID]= '" + txtFollowupID.Text + "' AND [S_Status] = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                dgvFollowUp_Comments.ItemsSource = ds.Tables[0].DefaultView;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool FollowupComments_Validation()
+        {
+            bool result = false;
+            if (txtFollowupViewID.Text == "")
+            {
+                result = true;
+                lblFValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFValidation.Foreground = Brushes.Red;
+                lblFValidation.Content = "Please Select Follow-up Details";
+            }
+            else if (txtFComments.Text == "")
+            {
+                result = true;
+                lblFValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFValidation.Foreground = Brushes.Red;
+                lblFValidation.Content = "Please Enter Comments";
+            }
+            
+            return result;
+        }
+
+        #region Followup Comments Button Event
+        private void hlAddComments_Click(object sender, RoutedEventArgs e)
+        {
+            grdFollup_Comments.Visibility = System.Windows.Visibility.Visible;
+            ViewAllComments_Details();
+            dgvFollowUp_Comments.CanUserAddRows = false;
+        }
+
+        private void btnFComments_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (FollowupComments_Validation() == true)
+                return;
+
+            try
+            {
+                balfollwpcomt.Flag = 1;
+                balfollwpcomt.FollowupId = Convert.ToInt32(txtFollowupViewID.Text);
+                balfollwpcomt.Comments = lblwalkin.Content.ToString();
+                balfollwpcomt.S_Status = "Active";
+                balfollwpcomt.C_Date = System.DateTime.Now.ToString();
+                dalfollowcomt.AddComments_Insert_Update_Delete(balfollwpcomt);
+                lblFValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFValidation.Foreground = Brushes.Green;
+                lblFValidation.Content = "Data Save Successfully";
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            ViewAllComments_Details();
+            txtFComments.Text = "";
+        }
+
+        private void btnFComments_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            grdFollup_Comments.Visibility = System.Windows.Visibility.Hidden;
+            //ViewAllComments_Details();
+            txtFComments.Text = "";
+        }
+        #endregion Followup Comments Button Event
+        #endregion FollowupComments Function
+
+        #region FollowupActivity Function
+        public void ViewAllActivity_Details()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT [ID],[FollowupID],[ASubject],[ADate],[AEmployeeID],[ANotes] FROM [tlb_FollowUpActivity] WHERE [FollowupID]= '" + txtFollowupViewID.Text + "' AND [S_Status] = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                dgvFollowUp_Activities.ItemsSource = ds.Tables[0].DefaultView;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public void ActivityClear()
+        {
+            cmbFASubject.Text = "-None-";
+            dtpFADate.Text = "";
+            cmbFALeadOwner.SelectedItem = null;
+            txtFANote.Text = "";
+        }
+
+        public bool FollowupActivity_Validation()
+        {
+            bool result = false;
+            if (cmbFASubject.Text == "-None-")
+            {
+                result = true;
+                lblFAValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFAValidation.Foreground = Brushes.Red;
+                lblFAValidation.Content = "Please Select Subject";
+            }
+            else if(dtpFADate.Text == "")
+            {
+                result = true;
+                lblFAValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFAValidation.Foreground = Brushes.Red;
+                lblFAValidation.Content = "Please Select Date";
+            }
+            else if(cmbFALeadOwner.SelectedValue == null)
+            {
+                result = true;
+                lblFAValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFAValidation.Foreground = Brushes.Red;
+                lblFAValidation.Content = "Please Select Lead Owner";
+            }
+            return result;
+        }
+
+        private void btnFA_ActivitySave_Click(object sender, RoutedEventArgs e)
+        {
+            if (FollowupActivity_Validation() == true)
+                return;
+
+            try
+            {
+                balfollwpcomt.Flag = 1;
+                balfollwpcomt.FollowupId = Convert.ToInt32(txtFollowupViewID.Text);
+                balfollwpcomt.ASubject = cmbFASubject.Text;
+                balfollwpcomt.ADate = dtpFADate.Text;
+                balfollwpcomt.AEmployeeID = cmbFALeadOwner.SelectedValue.GetHashCode();
+                balfollwpcomt.ANotes = txtFANote.Text;
+                balfollwpcomt.S_Status = "Active";
+                balfollwpcomt.C_Date = System.DateTime.Now.ToString();
+                dalfollowcomt.AddActivity_Insert_Update_Delete(balfollwpcomt);
+                lblFAValidation.Visibility = System.Windows.Visibility.Visible;
+                lblFAValidation.Foreground = Brushes.Green;
+                lblFAValidation.Content = "Data Save Successfully";
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            ViewAllActivity_Details();
+            ActivityClear();
+        }
+
+        private void btnFA_ActivityCancel_Click(object sender, RoutedEventArgs e)
+        {
+            grdFollup_Activity.Visibility = System.Windows.Visibility.Hidden;
+            ActivityClear();
+        }
+
+        private void hlAddAcivities_Click(object sender, RoutedEventArgs e)
+        {
+            grdFollup_Activity.Visibility = System.Windows.Visibility.Visible;
+            dgvFollowUp_Activities.CanUserAddRows = false;
+        }
+        #endregion FollowupActivity Function
+
+
+>>>>>>> origin/master
     }
 }

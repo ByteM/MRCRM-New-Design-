@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DAL_AddComments.cs" />
     <Compile Include="DAL_AddProducts.cs" />
     <Compile Include="DAL_CustomerEntry.cs" />
     <Compile Include="DAL_DealerEntry.cs" />
