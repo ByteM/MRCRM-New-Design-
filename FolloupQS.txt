@@ -1,0 +1,85 @@
+create table tlb_FollowUp
+(
+ID int identity(1,1) constraint pk_Follow_ID primary key(ID) not null,
+EmployeeID int CONSTRAINT fk_Follow_EmployeeID FOREIGN KEY REFERENCES tbl_Employee NOT NULL,
+Followup_ID nvarchar(MAX) not null,
+FTitle nvarchar(MAX) not null,
+FiratName nvarchar(MAX) not null,
+LastName nvarchar(MAX) not null,
+Date_Of_Birth nvarchar(MAX) not null,
+Mobile_No nvarchar(MAX) not null,
+Phone_No nvarchar(MAX) not null,
+SourceOfEnquiry nvarchar(MAX) null,
+SourceEnquiryID int not null,
+Occupation nvarchar(MAX) not null,
+AnnualRevenue money not null,
+Email_ID nvarchar(MAX) not null,
+FaxNo nvarchar(MAX) not null,
+Wbsite nvarchar(MAX) not null,
+Street nvarchar(MAX) not null,
+City nvarchar(MAX) not null,
+State nvarchar(MAX) not null,
+ZipNo nvarchar(MAX) not null,
+Country nvarchar(MAX) not null,
+Description nvarchar(MAX) not null,
+F_Date nvarchar(MAX) null,
+S_Status nvarchar(MAX) not null,
+C_Date nvarchar(MAX) not null,
+)
+select * from tlb_FollowUp
+drop table tlb_FollowUp
+
+
+=========================================================================
+
+USE [DB_CRM]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Followup]    Script Date: 09-09-2014 14:11:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_Followup]
+	-- Add the parameters for the stored procedure here
+	@Flag int=null,
+@EmployeeID int=null,
+@Followup_ID nvarchar(MAX) ,
+@FTitle nvarchar(MAX),
+@FiratName nvarchar(MAX) ,
+@LastName nvarchar(MAX),
+@Date_Of_Birth nvarchar(MAX),
+@Mobile_No nvarchar(MAX),
+@PhoneNo nvarchar(MAX),
+@SourceOfEnquiry nvarchar(MAX) ,
+@SourceEnquiryID int=null,
+@Occupation nvarchar(MAX) ,
+@AnnualRevenue money,
+@Email_ID nvarchar(MAX),
+@FaxNo nvarchar(MAX),
+@Wbsite nvarchar(MAX),
+@Street nvarchar(MAX) ,
+@City nvarchar(MAX),
+@State nvarchar(MAX),
+@ZipNo nvarchar(MAX),
+@Country nvarchar(MAX),
+@Description nvarchar(MAX) ,
+@F_Date nvarchar(MAX),
+@S_Status nvarchar(MAX) ,
+@C_Date nvarchar(MAX)
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+  if(@Flag=1)
+  begin
+  insert into tlb_FollowUp(EmployeeID,Followup_ID,FTitle,FiratName,LastName,Date_Of_Birth,Mobile_No,Phone_No,SourceOfEnquiry,SourceEnquiryID,Occupation,AnnualRevenue,Email_ID,FaxNo,Wbsite,Street,City,State,ZipNo,Country,Description,F_Date,S_Status,C_Date)values(@EmployeeID,@Followup_ID,@FTitle,@FiratName,@LastName,@Date_Of_Birth,@Mobile_No,@PhoneNo,@SourceOfEnquiry,@SourceEnquiryID,@Occupation,@AnnualRevenue,@Email_ID,@FaxNo,@Wbsite,@Street,@City,@State,@ZipNo,@Country,@Description,@F_Date,@S_Status,@C_Date)
+  end
+END
