@@ -5144,14 +5144,14 @@ namespace CRM_User_Interface
             
         }
 
-<<<<<<< HEAD
+
         private void btnSaleProductsFetch_Click(object sender, RoutedEventArgs e)
         {
             StockProducts sp = new StockProducts();
             sp.Show();
         }
 
-=======
+
         public void FollowUp_FillData()
         {
             try
@@ -5469,6 +5469,6 @@ namespace CRM_User_Interface
         #endregion FollowupActivity Function
 
 
->>>>>>> origin/master
+
     }
 }

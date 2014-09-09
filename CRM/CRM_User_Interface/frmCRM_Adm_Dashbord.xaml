@@ -829,13 +829,13 @@
 
 
                 </Grid>
-<<<<<<< HEAD
+
                 <Grid x:Name="grdFollowupEntry" Visibility="Hidden"  HorizontalAlignment="Center"  Margin="56,1,59,3" Width="1109" Background="White" Loaded="grdFollowupEntry_Loaded">
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="1160" Background="#FF4684F0">
-=======
+
                 <Grid x:Name="grdFollowupEntry" Visibility="Hidden" HorizontalAlignment="Center"  Margin="56,1,59,3" Width="1109" Background="White" Loaded="grdFollowupEntry_Loaded">
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="1109" Background="#FF4684F0">
->>>>>>> origin/master
+
                         <Label Content="Walk-Ins Entry" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="16" FontWeight="Bold" FontFamily="Verdana"/>
                         <Label Content="This is where you fill your Walk-Ins details" HorizontalAlignment="Left" Margin="18,32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="14" FontFamily="Verdana"/>
                         <Image x:Name="imgDealerDetails6" HorizontalAlignment="Left" Height="52" Margin="1023,8,0,0" VerticalAlignment="Top" Width="67" Source="Images/home.png" Stretch="Fill"/>
