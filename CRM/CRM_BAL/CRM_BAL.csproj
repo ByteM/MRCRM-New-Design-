@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BAL_AddComments.cs" />
     <Compile Include="BAL_AddProduct.cs" />
+    <Compile Include="BAL_CreateCampaign.cs" />
     <Compile Include="BAL_CustomerEntry.cs" />
     <Compile Include="BAL_DealerEntry.cs" />
     <Compile Include="BAL_EmployeeEntry.cs" />

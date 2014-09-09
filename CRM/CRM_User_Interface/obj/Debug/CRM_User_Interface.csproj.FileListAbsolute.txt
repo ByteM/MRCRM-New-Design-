@@ -71,3 +71,5 @@ C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interfac
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\frmAddProducts.g.cs
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\StockProducts.baml
 C:\Users\Nazia Tabassum\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\StockProducts.g.cs
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\StockProducts.baml
+C:\Users\Dexter\Documents\GitHub\MRCRM-New-Design-\CRM\CRM_User_Interface\obj\Debug\StockProducts.g.cs

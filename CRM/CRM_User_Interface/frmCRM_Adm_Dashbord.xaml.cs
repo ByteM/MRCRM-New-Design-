@@ -5518,7 +5518,6 @@ namespace CRM_User_Interface
             //////////    //System.IO.Directory.CreateDirectory(path1);
 
 
-<<<<<<< HEAD
             //////////}
             //File.Copy(imagepath, path);
             //MessageBox.Show("Image Successfully Saved :" + path + "'\'Image'\'" + picname);
@@ -5603,8 +5602,5 @@ namespace CRM_User_Interface
         }
 
        
-=======
-
->>>>>>> b2cdfda8cda0b2a54ed63c8058d5a269414fd519
-    }
+  }
 }
