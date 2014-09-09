@@ -19,6 +19,8 @@ using System.Globalization;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Reflection;
+using System.IO;
 using CRM_BAL;
 using CRM_DAL;
 
@@ -35,6 +37,9 @@ namespace CRM_User_Interface
         public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
         SqlDataReader dr;
+
+        SaveFileDialog sfd = new SaveFileDialog();
+
         static int PK_ID;
         public string filepath;
         public BitmapImage bmp;
@@ -5154,7 +5159,7 @@ namespace CRM_User_Interface
                                   ",E.[EmployeeFirstName] + ' ' + E.[EmployeeLastName] AS [EmployeeName] " +
                                   "FROM [tlb_FollowUp] F " +
                                   "INNER JOIN [tbl_Employee] E ON E.[ID]=F.[EmployeeID] " +
-                                  "where ID='" + txtFollowupID.Text + "' ";
+                                  "where F.[ID]='" + txtFollowupID.Text + "' ";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -5254,6 +5259,8 @@ namespace CRM_User_Interface
             frmValidationMessage obj = new frmValidationMessage();
             obj.lblMessage.Content = "Image Save Successfully";
             obj.ShowDialog();
+
+
         }
 
         
@@ -5460,6 +5467,132 @@ namespace CRM_User_Interface
         }
         #endregion FollowupActivity Function
 
+        
+        private void btnFA_Attached_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //string filename = txt1.Text;
+            //if (File.Exists(filename))
+            //{
+            //    // TODO: Show an error message box to user indicating destination file already uploaded
+            //    return;
+            //}
 
+            ////string name = Path.GetFileName(filename);
+            ////string destinationFilename = Path.Combine("C:\\temp\\uploaded files\\", name);
+
+            //string path = AppDomain.CurrentDomain.BaseDirectory + '\\';
+            //if (!(System.IO.Directory.Exists(path)))
+            //{
+            //    System.IO.Directory.CreateDirectory(path);
+            //}
+            //string path1 = path + "\\images\\WalkIns\\" + txt1 +".txt";
+
+            //File.Copy(filename, path);
+
+
+            //////////string imagepath = txt1.ToString();
+            //////////string picname = imagepath.Substring(imagepath.LastIndexOf('\\'));
+
+            //////////string path = AppDomain.CurrentDomain.BaseDirectory + '\\';
+            //////////if (!(System.IO.Directory.Exists(path)))
+            //////////{
+            //////////    System.IO.Directory.CreateDirectory(path);
+            //////////}
+            //////////string path1 = path + "\\images\\FAttachmentFiles\\" + picname + ".docx";
+            ///////////////
+            //////////using (System.IO.FileStream filestream = new System.IO.FileStream(Convert.ToString(path1), System.IO.FileMode.))
+            //////////{
+            ////////////    JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            ////////////    encoder.Frames.Add(BitmapFrame.Create(bmp));
+            ////////////    encoder.QualityLevel = 100;
+            ////////////    encoder.Save(filestream);
+            //////////    //System.IO.Directory.CreateDirectory(path1);
+
+
+            //////////}
+            //File.Copy(imagepath, path);
+            //MessageBox.Show("Image Successfully Saved :" + path + "'\'Image'\'" + picname);
+            //frmValidationMessage obj = new frmValidationMessage();
+            //obj.lblMessage.Content = "Image Save Successfully";
+            //obj.ShowDialog();
+
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            //dlg.FileName = "Document"; // Default file name
+            string imagepath = txt1.ToString();
+            dlg.FileName = txt1.Text;
+            string picname = imagepath.Substring(imagepath.LastIndexOf('\\'));
+            string path = AppDomain.CurrentDomain.BaseDirectory + '\\';
+            dlg.DefaultExt = ".text"; // Default file extension
+            dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension 
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results 
+            if (result == true)
+            {
+    // Save document 
+                string filename = dlg.FileName;
+                string path1 = path + "\\images\\FAttachmentFiles\\" + filename + ".docx";
+            }
+        }
+
+        private void btnFA_AttachChoose_Click(object sender, RoutedEventArgs e)
+        {
+            //var fd = new Microsoft.Win32.OpenFileDialog();
+            ////   fd.Filter = "*.jpeg";
+
+            //fd.Filter = "All doc formats (*.docx; *.pdf; *.txt)|*.docx;*.pdf;*.txt";
+            //var ret = fd.ShowDialog();
+
+            //if (ret.GetValueOrDefault())
+            //{
+
+            //    //txtFollowup_PhotoPath.Text = fd.FileName;
+            //    //filepath = fd.FileName;
+
+            //    //try
+            //    //{
+            //        //string abc = new Document (new Uri(fd.FileName, UriKind.Absolute));
+            //        //rtbAllDoc.Document = abc;
+                         
+            //    //}
+            //    //catch (Exception)
+            //    //{
+            //    //    MessageBox.Show("Invalid image file.", "Browse", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            //    //}
+            //}
+
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Filter = "All doc formates (*.docx; *.pdf; *.txt)|*.docx;*.pdf;*.txt";
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                txt1.Text = filename;
+            }
+
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.Multiselect = true;
+            //openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            //openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //if (openFileDialog.ShowDialog() == true)
+            //{
+            //    foreach (string filename in openFileDialog.FileNames)
+            //        //lbFiles.Items.Add(Path.GetFileNFame(filename));
+            //         string filename = openFileDialog.FileName;
+            //         txt1.Text = filename;
+
+            //}
+
+        }
+
+        private void btnViewInfo_Close_Click(object sender, RoutedEventArgs e)
+        {
+            grd_LeadInformation.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+       
     }
 }

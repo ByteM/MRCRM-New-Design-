@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="CRM_User_Interface.frmCRM_Adm_Dashbord"
-        Title="MainWindow" Height="893.422" Width="1263.948" WindowState="Maximized" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="MainWindow" Height="893.422" Width="1263.948" WindowState="Maximized" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" UseLayoutRounding="False">
     <Border x:Name="mainDashBordBorder" BorderBrush="Black" BorderThickness="20,35,20,30" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" SizeChanged="mainDashBordBorder_SizeChanged">
         <Grid>
             <Label Content="Mister CRM" HorizontalAlignment="Left" Margin="0,-32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontWeight="Bold" FontSize="16"/>
@@ -42,7 +42,7 @@
 
             </StackPanel>
             <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Left" Margin="1023,-26,0,0" VerticalAlignment="Top" Width="75" Background="#FFFF0202" Foreground="#FFFCFCFC"/>
-            <Button x:Name="btnAPPClose" HorizontalAlignment="Stretch" Margin="1216,-27,-18,0" VerticalAlignment="Top" Width="26" Background="#FF070606"  Height="22" Click="btnAPPClose_Click">
+            <Button x:Name="btnAPPClose" HorizontalAlignment="Right" Margin="1216,-27,-18,0" VerticalAlignment="Top" Width="26" Background="#FF070606"  Height="22" Click="btnAPPClose_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <Image Source="Images/AppExit.ico"/>
@@ -1353,7 +1353,7 @@
 
 
                 </Grid>
-                <Grid x:Name="grd_View_FollowupEntry" Visibility="Visible" HorizontalAlignment="Center"  Margin="32,-168,32,-77" Width="1109" Background="White" Loaded="grdFollowupEntry_Loaded">
+                <Grid x:Name="grd_View_FollowupEntry" Visibility="Hidden" HorizontalAlignment="Center"  Margin="32,-168,32,-77" Width="1109" Background="White" Loaded="grdFollowupEntry_Loaded">
                     <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="1160" Background="#FF4684F0">
                         <Label Content="Walk-Ins Details" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="16" FontWeight="Bold" FontFamily="Verdana"/>
                         <Label Content="This is where you fill your Walk-Ins details" HorizontalAlignment="Left" Margin="18,32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="14" FontFamily="Verdana"/>
@@ -1475,17 +1475,58 @@
                                     <Button x:Name="btnFComments_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="110,154,0,0" VerticalAlignment="Top" Width="74" Click="btnFComments_Cancel_Click"/>
                                     <Label x:Name="lblFValidation" Content="Validation" HorizontalAlignment="Left" Margin="13,124,0,0" VerticalAlignment="Top" Width="379" Visibility="Hidden"/>
                                 </Grid>
-                                <Grid x:Name="grdFollup_Compaigns" Visibility="Visible" HorizontalAlignment="Left" Height="200" Margin="284,672,0,0" VerticalAlignment="Top" Width="616" Background="#FFCFCCCC">
+                                <Grid x:Name="grdFollup_Attachment" Visibility="Hidden" HorizontalAlignment="Left" Height="200" Margin="282,814,0,0" VerticalAlignment="Top" Width="616" Background="#FFCFCCCC">
                                     <Label Content="Attach File" HorizontalAlignment="Left" Margin="14,6,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14"/>
                                     <Separator Margin="0,38,0,0" VerticalAlignment="Top" FontFamily="Verdana" Background="#FF040404"></Separator>
-                                    <Button x:Name="btnFA_Attached" Content="Attach" HorizontalAlignment="Left" Margin="38,168,0,0" VerticalAlignment="Top" Width="74" Click="btnFA_ActivitySave_Click" Background="#FF3926F3" Foreground="#FFFCFCFC"/>
+                                    <Button x:Name="btnFA_Attached" Content="Attach" HorizontalAlignment="Left" Margin="38,168,0,0" VerticalAlignment="Top" Width="74" Click="btnFA_Attached_Click" Background="#FF3926F3" Foreground="#FFFCFCFC"/>
                                     <Button x:Name="btnFA_AttachedCancel" Content="Cancel" HorizontalAlignment="Left" Margin="130,168,0,0" VerticalAlignment="Top" Width="74" Click="btnFA_ActivityCancel_Click"/>
                                     <Label x:Name="lblFValidation2" Content="Validation" HorizontalAlignment="Left" Margin="35,148,0,0" VerticalAlignment="Top" Width="379" Visibility="Hidden"/>
                                     <Label Content="Select File:" HorizontalAlignment="Left" Margin="32,50,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="13"/>
                                     <Label Content="Total File(s) should not exceed 20 MB" HorizontalAlignment="Left" Margin="34,76,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
                                     <Label x:Name="lblFAValidation1" Content="Validation" HorizontalAlignment="Left" Margin="40,240,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294" Visibility="Hidden"/>
-                                    <Button x:Name="btnFA_AttachChoose" Content="Choose File" HorizontalAlignment="Left" Margin="36,116,0,0" VerticalAlignment="Top" Width="74" Click="btnFA_ActivitySave_Click"/>
+                                    <Button x:Name="btnFA_AttachChoose" Content="Choose File" HorizontalAlignment="Left" Margin="36,116,0,0" VerticalAlignment="Top" Width="74" Click="btnFA_AttachChoose_Click"/>
                                     <Label Content="X" HorizontalAlignment="Left" Margin="589,6,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Width="23"/>
+                                    <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="24" Margin="172,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242"/>
+                                </Grid>
+                                <Grid x:Name="grd_LeadInformation" Visibility="Hidden" HorizontalAlignment="Left" Height="431" Margin="258,204,0,0" VerticalAlignment="Top" Width="812" Background="#FFF4E8F5">
+                                    <Label Content="Lead Information" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="14" FontFamily="Tw Cen MT"/>
+                                    <Label Content="Lead Owner:" HorizontalAlignment="Left" Margin="27,37,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFLeadOwner" Content="Lead Owner:" HorizontalAlignment="Left" Margin="128,37,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Phone No:" HorizontalAlignment="Left" Margin="40,95,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFPhoneNo" Content="PhoneNo" HorizontalAlignment="Left" Margin="128,95,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="38,125,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFMobileNo" Content="MobileNo" HorizontalAlignment="Left" Margin="128,125,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Lead Source:" HorizontalAlignment="Left" Margin="24,155,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFLeadSource" Content="LeadSource" HorizontalAlignment="Left" Margin="128,155,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Lead Name:" HorizontalAlignment="Left" Margin="30,66,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFLeadName" Content="LeadName" HorizontalAlignment="Left" Margin="128,66,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Fax:" HorizontalAlignment="Left" Margin="459,126,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFFax" Content="Fax" HorizontalAlignment="Left" Margin="502,126,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Website:" HorizontalAlignment="Left" Margin="432,156,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFWebsite" Content="Website" HorizontalAlignment="Left" Margin="502,156,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Email:" HorizontalAlignment="Left" Margin="448,97,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFEmail" Content="Emial" HorizontalAlignment="Left" Margin="502,97,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Annual Revenue:" HorizontalAlignment="Left" Margin="2,185,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFAnulRevenu" Content="AnualRevenue" HorizontalAlignment="Left" Margin="128,185,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="255"/>
+                                    <Label Content="Address Information" HorizontalAlignment="Left" Margin="6,217,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="14" FontFamily="Tw Cen MT"/>
+                                    <Label Content="Street:" HorizontalAlignment="Left" Margin="61,245,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFStreet" Content="Street" HorizontalAlignment="Left" Margin="128,245,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="City:" HorizontalAlignment="Left" Margin="455,245,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFCity" Content="City" HorizontalAlignment="Left" Margin="507,245,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="State:" HorizontalAlignment="Left" Margin="66,276,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFState" Content="Street" HorizontalAlignment="Left" Margin="128,276,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Zip Code:" HorizontalAlignment="Left" Margin="426,275,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFZipCode" Content="ZipCode" HorizontalAlignment="Left" Margin="507,275,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Country:" HorizontalAlignment="Left" Margin="51,308,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFCountry" Content="Country" HorizontalAlignment="Left" Margin="128,308,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Label Content="Description Information" HorizontalAlignment="Left" Margin="6,339,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="14" FontFamily="Tw Cen MT"/>
+                                    <Label x:Name="lblFDesctiption" Content="Description" HorizontalAlignment="Left" Margin="128,371,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="668" Height="50"/>
+                                    <Label x:Name="lblFCountry_Copy1" Content="Description:" HorizontalAlignment="Left" Margin="31,370,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="88"/>
+                                    <Label Content="DOB:" HorizontalAlignment="Left" Margin="453,66,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFDOB" Content="DateOfBirth" HorizontalAlignment="Left" Margin="503,66,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="293"/>
+                                    <Label Content="Occupation:" HorizontalAlignment="Left" Margin="412,186,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label x:Name="lblFOccupation" Content="Occupation" HorizontalAlignment="Left" Margin="502,186,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                                    <Button x:Name="btnViewInfo_Close" Content="X" HorizontalAlignment="Left" Margin="782,2,0,0" VerticalAlignment="Top" Width="28" Height="26" BorderBrush="#FFDBD1DC" Background="#FFF4E8F5" FontSize="16" FontWeight="Bold" Click="btnViewInfo_Close_Click"/>
                                 </Grid>
 
                             </Grid>
@@ -1496,45 +1537,78 @@
                     </DockPanel>
 
                 </Grid>
-            </Grid>
-            <Grid x:Name="grd_LeadInformation" Visibility="Hidden" HorizontalAlignment="Left" Height="431" Margin="314,168,0,0" VerticalAlignment="Top" Width="812" Background="#FFF4E8F5">
-                <Label Content="Lead Information" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="14" FontFamily="Tw Cen MT"/>
-                <Label Content="Lead Owner:" HorizontalAlignment="Left" Margin="27,37,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFLeadOwner" Content="Lead Owner:" HorizontalAlignment="Left" Margin="128,37,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Phone No:" HorizontalAlignment="Left" Margin="40,95,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFPhoneNo" Content="PhoneNo" HorizontalAlignment="Left" Margin="128,95,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="38,125,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFMobileNo" Content="MobileNo" HorizontalAlignment="Left" Margin="128,125,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Lead Source:" HorizontalAlignment="Left" Margin="24,155,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFLeadSource" Content="LeadSource" HorizontalAlignment="Left" Margin="128,155,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Lead Name:" HorizontalAlignment="Left" Margin="30,66,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFLeadName" Content="LeadName" HorizontalAlignment="Left" Margin="128,66,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Fax:" HorizontalAlignment="Left" Margin="459,126,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFFax" Content="Fax" HorizontalAlignment="Left" Margin="502,126,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Website:" HorizontalAlignment="Left" Margin="432,156,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFWebsite" Content="Website" HorizontalAlignment="Left" Margin="502,156,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Email:" HorizontalAlignment="Left" Margin="448,97,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFEmail" Content="Emial" HorizontalAlignment="Left" Margin="502,97,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Annual Revenue:" HorizontalAlignment="Left" Margin="2,185,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFAnulRevenu" Content="AnualRevenue" HorizontalAlignment="Left" Margin="128,185,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="255"/>
-                <Label Content="Address Information" HorizontalAlignment="Left" Margin="6,217,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="14" FontFamily="Tw Cen MT"/>
-                <Label Content="Street:" HorizontalAlignment="Left" Margin="61,245,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFStreet" Content="Street" HorizontalAlignment="Left" Margin="128,245,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="City:" HorizontalAlignment="Left" Margin="455,245,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFCity" Content="City" HorizontalAlignment="Left" Margin="507,245,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="State:" HorizontalAlignment="Left" Margin="66,276,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFState" Content="Street" HorizontalAlignment="Left" Margin="128,276,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Zip Code:" HorizontalAlignment="Left" Margin="426,275,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFZipCode" Content="ZipCode" HorizontalAlignment="Left" Margin="507,275,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Country:" HorizontalAlignment="Left" Margin="51,308,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFCountry" Content="Country" HorizontalAlignment="Left" Margin="128,308,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
-                <Label Content="Description Information" HorizontalAlignment="Left" Margin="6,339,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="14" FontFamily="Tw Cen MT"/>
-                <Label x:Name="lblFDesctiption" Content="Description" HorizontalAlignment="Left" Margin="128,371,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="668" Height="50"/>
-                <Label x:Name="lblFCountry_Copy1" Content="Description:" HorizontalAlignment="Left" Margin="31,370,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="88"/>
-                <Label Content="DOB:" HorizontalAlignment="Left" Margin="453,66,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFDOB" Content="DateOfBirth" HorizontalAlignment="Left" Margin="503,66,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="293"/>
-                <Label Content="Occupation:" HorizontalAlignment="Left" Margin="412,186,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
-                <Label x:Name="lblFOccupation" Content="Occupation" HorizontalAlignment="Left" Margin="502,186,0,0" VerticalAlignment="Top" FontFamily="Verdana" Width="294"/>
+                <Grid x:Name="grdCreateCampaign" Visibility="Visible" HorizontalAlignment="Center"  Margin="56,1,59,3" Width="1109" Background="White" Loaded="grdFollowupEntry_Loaded">
+                    <Grid HorizontalAlignment="Left" Height="68" VerticalAlignment="Top" Width="1109" Background="#FF4684F0">
+                        <Label Content="Create Campaign" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="16" FontWeight="Bold" FontFamily="Verdana"/>
+                        <Label Content="This is where you fill your campaign details" HorizontalAlignment="Left" Margin="18,32,0,0" VerticalAlignment="Top" Foreground="#FFFCFCFC" FontSize="14" FontFamily="Verdana"/>
+                        <Image x:Name="imgDealerDetails14" HorizontalAlignment="Left" Height="52" Margin="1023,8,0,0" VerticalAlignment="Top" Width="67" Source="Images/home.png" Stretch="Fill"/>
+                    </Grid>
+                    <DockPanel>
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" CanContentScroll="True" UseLayoutRounding="False" PanningMode="VerticalOnly" Margin="0,70.5,0,0">
+                            <Grid Height="648" Width="1093">
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,26,1070,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Label Content="Campaign Information" HorizontalAlignment="Left" Margin="28,16,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontFamily="Tw Cen MT" FontSize="16"/>
+                                <Grid HorizontalAlignment="Left" Height="281" Margin="30,60,0,0" VerticalAlignment="Top" Width="1031" Background="#FFF0F0F0">
+                                    <Label Content="Campaign Type:" HorizontalAlignment="Left" Margin="34,70,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <Label Content="Start Date:" HorizontalAlignment="Left" Margin="64,120,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <DatePicker x:Name="dp_CompStartDate" HorizontalAlignment="Left" Margin="156,122,0,0" VerticalAlignment="Top" Width="155" FontFamily="Verdana" TabIndex="4" IsTabStop="True"/>
+                                    <Button x:Name="btnSavePhoto7" Content="SavePhoto" Margin="482,156,-11,-44" Background="#FF798CD1" Foreground="#FFFCFCFC" FontSize="14" Click="btnSavePhoto_Click" Visibility="Hidden"/>
+                                    <TextBox x:Name="txtMaxID7" HorizontalAlignment="Left" Height="23" Margin="538,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" FontFamily="Verdana" Visibility="Hidden"/>
+                                    <TextBox x:Name="txtEmployeeID7" HorizontalAlignment="Left" Height="23" Margin="538,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" FontFamily="Verdana" Visibility="Hidden"/>
+                                    <Label Content="Campaign Name:" HorizontalAlignment="Left" Margin="29,20,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <ComboBox x:Name="cmbCEmployeename1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="378" Margin="156,22,0,0" IsEditable="True" IsReadOnly="False" Height="25" TabIndex="0" IsTabStop="True" FontFamily="Verdana"/>
+                                    <ComboBox x:Name="cmbCampaignType" Text="-None-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="377" Margin="157,73,0,0" IsEditable="True" IsReadOnly="False" Height="23" TabIndex="1" IsTabStop="True" FontFamily="Verdana">
+                                        <ComboBoxItem Content="Conference"/>
+                                        <ComboBoxItem Content="Webinar"/>
+                                        <ComboBoxItem Content="Trade Show"/>
+                                        <ComboBoxItem Content="Public Relation"/>
+                                        <ComboBoxItem Content="Partners"/>
+                                        <ComboBoxItem Content="Referral Program"/>
+                                        <ComboBoxItem Content="Advertisement"/>
+                                        <ComboBoxItem Content="Banner Ads"/>
+                                        <ComboBoxItem Content="Direct mail"></ComboBoxItem>
+                                        <ComboBoxItem Content="Email"></ComboBoxItem>
+                                        <ComboBoxItem Content="Telemarketing"></ComboBoxItem>
+                                        <ComboBoxItem Content="Others"></ComboBoxItem>
+                                    </ComboBox>
+                                    <Label Content="Expected Revenue:" HorizontalAlignment="Left" Margin="16,171,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <TextBox x:Name="txtCampExpectedRevenue" HorizontalAlignment="Left" Height="23" Margin="157,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="6"/>
+                                    <Label x:Name="Phone_No_5" Content="Actual Cost:" HorizontalAlignment="Left" Margin="57,223,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <TextBox x:Name="txtCampActualCost" HorizontalAlignment="Left" Height="23" Margin="157,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" PreviewTextInput="NumberValidationTextBox" FontFamily="Verdana" TabIndex="8"/>
+                                    <Label x:Name="Phone_No_3_Copy6" Content="Budgeted Cost:" HorizontalAlignment="Left" Margin="571,171,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <TextBox x:Name="txtCampBudgetedCost" HorizontalAlignment="Left" Height="23" Margin="694,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" TabIndex="7" PreviewTextInput="NumberValidationTextBox"/>
+                                    <Label x:Name="Phone_No_3_Copy7" Content="Expected Response:" HorizontalAlignment="Left" Margin="545,224,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <TextBox x:Name="txtCampExpectedResponse" HorizontalAlignment="Left" Height="23" Margin="694,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" TabIndex="9"/>
+                                    <Button x:Name="btnCampBudgCalc" Content="" HorizontalAlignment="Left" Margin="992,173,0,0" VerticalAlignment="Top" Width="30" Height="25" TabIndex="13">
+                                        <Button.ContentTemplate>
+                                            <DataTemplate>
+                                                <Image Source="Images/Calculator.ico" Stretch="None"/>
+                                            </DataTemplate>
+                                        </Button.ContentTemplate>
+                                    </Button>
+                                    <Label Content="End Date:" HorizontalAlignment="Left" Margin="606,120,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <DatePicker x:Name="dp_CompEndDate" HorizontalAlignment="Left" Margin="688,122,0,0" VerticalAlignment="Top" Width="155" FontFamily="Verdana" TabIndex="4" IsTabStop="True"/>
+                                    <Button x:Name="btnFollowCalc1_Copy" Content="" HorizontalAlignment="Left" Margin="473,173,0,0" VerticalAlignment="Top" Width="30" Height="25" TabIndex="13" Click="btnFollowCalc_Click"/>
+                                    <Button x:Name="btnFollowCalc1_Copy1" Content="" HorizontalAlignment="Left" Margin="473,223,0,0" VerticalAlignment="Top" Width="30" Height="25" TabIndex="13" Click="btnFollowCalc_Click"/>
+                                </Grid>
+
+                                <Button x:Name="btnCamp_Save" Content="Save" HorizontalAlignment="Left" Margin="193,580,0,0" VerticalAlignment="Top" Width="74" Height="26" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnFollowup_Save_Click" TabIndex="23"/>
+                                <Button x:Name="btnfCamp_Clear" Content="Clear" HorizontalAlignment="Left" Margin="289,580,0,0" VerticalAlignment="Top" Width="76"  Height="25" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnfFollowup_Clear_Click" TabIndex="24" />
+                                <Button x:Name="btnCamp_Exit" Content="Exit" HorizontalAlignment="Left" Margin="387,580,0,0" VerticalAlignment="Top" Width="76"  Height="25" Background="#FF4562E6" Foreground="#FFF6F6F6" FontWeight="Bold" FontSize="16" Click="btnFollowup_Exit_Click" TabIndex="25" />
+                                <Grid HorizontalAlignment="Left" Height="40" Margin="35,761,0,0" VerticalAlignment="Top" Width="1026" Background="#FFF0F0F0">
+                                    <Label Content="Follow-up Date:" HorizontalAlignment="Left" Margin="24,8,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <DatePicker x:Name="dp_Cdate1" HorizontalAlignment="Left" Margin="142,10,0,0" VerticalAlignment="Top" Width="130" IsEnabled="True" TabIndex="22" IsTabStop="True" />
+                                </Grid>
+                                <Label Content="Description Information:" HorizontalAlignment="Left" Margin="30,366,0,0" VerticalAlignment="Top" Foreground="#FF505DE0" FontSize="16" FontFamily="Tw Cen MT"/>
+                                <Ellipse Fill="#FF858EEA" HorizontalAlignment="Right" Height="8" Margin="0,376,1070,0" Stroke="#FF818ADC" VerticalAlignment="Top" Width="11"/>
+                                <Grid HorizontalAlignment="Left" Height="134" Margin="35,406,0,0" VerticalAlignment="Top" Width="1026" Background="#FFF0F0F0">
+                                    <Label Content="Description:" HorizontalAlignment="Left" Margin="7,4,0,0" VerticalAlignment="Top" FontFamily="Verdana"/>
+                                    <TextBox x:Name="txtCampDescription" HorizontalAlignment="Left" Height="83" Margin="13,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1001" FontFamily="Verdana" TabIndex="21"/>
+                                </Grid>
+                            </Grid>
+                        </ScrollViewer>
+                    </DockPanel>
+                </Grid>
             </Grid>
 
         </Grid>
