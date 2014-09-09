@@ -5602,5 +5602,10 @@ namespace CRM_User_Interface
         }
 
        
+<<<<<<< HEAD
   }
+=======
+
+    }
+>>>>>>> origin/master
 }
